@@ -310,8 +310,6 @@ input[type=checkbox] {
 
 .card:hover {
   border: rgb(184, 56, 67) solid 1px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
 }
 
 .card-img {
@@ -319,8 +317,10 @@ input[type=checkbox] {
 }
 
 .card a h1 {
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
+  color: #71457e;
+  margin-top: 10px;
 }
 
 .discount {
