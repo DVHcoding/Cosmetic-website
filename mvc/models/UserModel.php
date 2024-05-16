@@ -1,9 +1,5 @@
 <?php
-include_once (APP_ROOT . '/libs/PHPMailer.php');
 include_once (APP_ROOT . '/libs/Exception.php');
-include_once (APP_ROOT . '/libs/SMTP.php');
-
-use PHPMailer\PHPMailer\PHPMailer;
 
 class userModel
 {
@@ -157,10 +153,46 @@ class userModel
         return $result;
     }
 
+    public function getCountPaging($row = 8)
+    {
+        $db     = DB::getInstance();
+        $sql    = "SELECT COUNT(*) FROM users";
+        $result = mysqli_query($db->con, $sql);
+        if ($result) {
+            $totalrow = intval((mysqli_fetch_all($result, MYSQLI_ASSOC)[0])['COUNT(*)']);
+            return ceil($totalrow / $row);
+        }
+        return false;
+    }
+
     public function delete($userId)
     {
         $db     = DB::getInstance();
         $sql    = "UPDATE `users` SET status = 0 WHERE id=" . $userId;
+        $result = mysqli_query($db->con, $sql);
+        return $result;
+    }
+
+
+    // Hàm lấy tất cả user trong database
+    public function getAllUsers()
+    {
+        $db     = DB::getInstance();
+        $sql    = "SELECT * FROM users";
+        $result = mysqli_query($db->con, $sql);
+        return $result;
+    }
+
+    // Hàm lấy tất cả user theo page
+    public function getAllUsersForPage($page = 1, $total = 8)
+    {
+        if ($page <= 0) {
+            $page = 1;
+        }
+
+        $tmp    = ($page - 1) * $total;
+        $db     = DB::getInstance();
+        $sql    = "SELECT * FROM users LIMIT $tmp,$total";
         $result = mysqli_query($db->con, $sql);
         return $result;
     }

@@ -59,39 +59,43 @@
                     </div>
                 </div>
             </section>
-
         </main>
 
     </div>
+
+
     <script>
+
         const d = new Date();
+
         var xValues = <?php echo "[";
-                        for ($i = 0; $i < count($data['days']); $i++) {
-                            if ($i + 1 < count($data['days'])) {
-                                echo "'ngày " . $data['days'][$i] . "',";
-                            } else {
-                                echo "'ngày " . $data['days'][$i] . "'";
-                            }
-                        }
-                        echo "]" ?>;
+
+        for ($i = 0; $i < count($data['days']); $i++) {
+            if ($i + 1 < count($data['days'])) {
+                echo "'ngày " . $data['days'][$i] . "',";
+            } else {
+                echo "'ngày " . $data['days'][$i] . "'";
+            }
+        }
+        echo "]" ?>;
         var yValues = <?php echo "[";
-                        for ($i = 0; $i < count($data['totals']); $i++) {
-                            if ($i + 1 < count($data['totals'])) {
-                                echo $data['totals'][$i] . ",";
-                            } else {
-                                echo $data['totals'][$i];
-                            }
-                        }
-                        echo "]" ?>;
+        for ($i = 0; $i < count($data['totals']); $i++) {
+            if ($i + 1 < count($data['totals'])) {
+                echo $data['totals'][$i] . ",";
+            } else {
+                echo $data['totals'][$i];
+            }
+        }
+        echo "]" ?>;
         var barColors = <?php echo "[";
-                        for ($i = 0; $i < count($data['totals']); $i++) {
-                            if ($i + 1 < count($data['totals'])) {
-                                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")', ";
-                            } else {
-                                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")'";
-                            }
-                        }
-                        echo "]" ?>;
+        for ($i = 0; $i < count($data['totals']); $i++) {
+            if ($i + 1 < count($data['totals'])) {
+                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")', ";
+            } else {
+                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")'";
+            }
+        }
+        echo "]" ?>;
 
         new Chart("myChart", {
             type: "bar",
@@ -109,37 +113,39 @@
                 title: {
                     display: true,
                     text: "Biểu đồ doanh thu tháng "+d.getMonth()
-                }
+ 
+        
+                 }
             }
         });
 
         var xValues = <?php echo "[";
-                        for ($i = 0; $i < count($data['names']); $i++) {
-                            if ($i + 1 < count($data['names'])) {
-                                echo "'" . $data['names'][$i] . "',";
-                            } else {
-                                echo "'" . $data['names'][$i] . "'";
-                            }
-                        }
-                        echo "]" ?>;
+        for ($i = 0; $i < count($data['names']); $i++) {
+            if ($i + 1 < count($data['names'])) {
+                echo "'" . $data['names'][$i] . "',";
+            } else {
+                echo "'" . $data['names'][$i] . "'";
+            }
+        }
+        echo "]" ?>;
         var yValues = <?php echo "[";
-                        for ($i = 0; $i < count($data['totalsoldCount']); $i++) {
-                            if ($i + 1 < count($data['totalsoldCount'])) {
-                                echo $data['totalsoldCount'][$i] . " ,";
-                            } else {
-                                echo $data['totalsoldCount'][$i];
-                            }
-                        }
-                        echo "]" ?>;
+        for ($i = 0; $i < count($data['totalsoldCount']); $i++) {
+            if ($i + 1 < count($data['totalsoldCount'])) {
+                echo $data['totalsoldCount'][$i] . " ,";
+            } else {
+                echo $data['totalsoldCount'][$i];
+            }
+        }
+        echo "]" ?>;
         var barColors = <?php echo "[";
-                        for ($i = 0; $i < count($data['totalsoldCount']); $i++) {
-                            if ($i + 1 < count($data['totalsoldCount'])) {
-                                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")', ";
-                            } else {
-                                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")'";
-                            }
-                        }
-                        echo "]" ?>;
+        for ($i = 0; $i < count($data['totalsoldCount']); $i++) {
+            if ($i + 1 < count($data['totalsoldCount'])) {
+                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")', ";
+            } else {
+                echo "'rgba(" . rand(100, 250) . "," . rand(100, 250) . "," . rand(100, 250) . ")'";
+            }
+        }
+        echo "]" ?>;
 
         new Chart("myChart2", {
             type: "pie",

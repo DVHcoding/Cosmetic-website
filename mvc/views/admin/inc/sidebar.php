@@ -59,6 +59,12 @@
                 </a>
             </li>
             <li>
+                <a href="<?= URL_ROOT . '/userManage?page=1' ?>">
+                    <span class="ti-file"></span>
+                    <span>Quản lý người dùng</span>
+                </a>
+            </li>
+            <li>
                 <a href="<?= URL_ROOT . '/statisticManage' ?>">
                     <span class="ti-bar-chart"></span>
                     <span>Thống kê</span>
