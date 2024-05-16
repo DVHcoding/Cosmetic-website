@@ -9,18 +9,22 @@
     $total = $cart->getTotal();
   }
 
+
   $category     = $this->model("categoryModel");
   $result       = $category->getAllClient();
   $listCategory = $result->fetch_all(MYSQLI_ASSOC);
   ?>
   <nav class="navbar">
     <div class="logo">HUYPHAM STORE</div>
+    <!-- search -->
     <div class="search-container">
       <form action="<?= URL_ROOT ?>/product/search" method="get">
         <input type="text" class="search" placeholder="Tìm kiếm.." name="keyword">
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
+
+    <!-- Header category -->
     <ul class="nav-links">
       <input type="checkbox" id="checkbox_toggle" />
       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
@@ -60,9 +64,11 @@
       </div>
     </ul>
   </nav>
-  <div class="banner">
 
-  </div>
+  <!-- banner -->
+  <div class="banner"></div>
+
+  <!-- Login Form -->
   <div class="login">
     <div class="login-triangle"></div>
     <h2 class="login-header">Đăng nhập</h2>
