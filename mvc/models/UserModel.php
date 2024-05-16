@@ -196,4 +196,25 @@ class userModel
         $result = mysqli_query($db->con, $sql);
         return $result;
     }
+
+    // Hàm thay đổi trạng thái tài khoản người dùng (khóa, mở khóa)
+    public function changeStatus($Id)
+    {
+        $db     = DB::getInstance();
+        $sql    = "UPDATE users SET status = !status WHERE Id='$Id'";
+        $result = mysqli_query($db->con, $sql);
+        return $result;
+    }
+
+    // Hàm tìm kiếm user
+    public function searchUser($keyword)
+    {
+        $db     = DB::getInstance();
+        $sql    = "SELECT * FROM users WHERE fullName LIKE '%$keyword%'";
+        $result = mysqli_query($db->con, $sql);
+        if (mysqli_num_rows($result)) {
+            return $result;
+        }
+        return false;
+    }
 }

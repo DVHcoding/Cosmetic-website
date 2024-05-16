@@ -14,7 +14,7 @@ class userManage extends ControllerBase
         // Trường hợp nếu admin nhập thông tin vào ô tìm kiếm 
         if (isset($_GET['keyword'])) {
             // # gọi hàm searchUser từ userModel và chuyền cho nó 1 argument là từ cần tìm
-            $result    = $user->searchuser($_GET["keyword"]);
+            $result    = $user->searchUser($_GET["keyword"]);
             $usersList = [];
 
             // # Chỉ hiển thị 8 cái cho mỗi page
