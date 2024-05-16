@@ -13,6 +13,8 @@
   $result       = $category->getAllClient();
   $listCategory = $result->fetch_all(MYSQLI_ASSOC);
   ?>
+
+  <!-- Header -->
   <nav class="navbar">
     <div class="logo">HUYPHAM STORE</div>
 
@@ -23,15 +25,20 @@
       </form>
     </div>
 
+    <!-- Header category -->
     <ul class="nav-links">
       <input type="checkbox" id="checkbox_toggle" />
       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
 
       <div class="menu">
-        <li class="menu-active"><a href="<?= URL_ROOT ?>">Trang chủ <i class="fa fa-home"></i></a></li>
+        <li class="menu-active">
+          <a href="<?= URL_ROOT ?>">Trang chủ <i class="fa fa-home"></i> </a>
+        </li>
 
         <li class="cate">
+
           <a href="#">Danh mục <i class="fa fa-list-ul"></i></a>
+
           <ul class="sub-menu">
             <?php
             foreach ($listCategory as $key) { ?>
@@ -67,6 +74,7 @@
     </ul>
   </nav>
 
+  <!-- Slide -->
   <div class="slideshow-container">
 
     <!-- Full-width images with number and caption text -->
@@ -98,14 +106,15 @@
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
+  <!-- ######################################################################### -->
   <div class="title">Sản phẩm nổi bật</div>
-
   <div class="content">
     <?php
     if (count($data['FeaturedproductsList']) > 0) {
       foreach ($data['FeaturedproductsList'] as $key) { ?>
         <div class="card">
 
+          <!-- Giá -->
           <?php
           if ($key['promotionPrice'] < $key['originalPrice']) { ?>
             <div class="discount">
@@ -114,15 +123,18 @@
           <?php }
           ?>
 
+          <!-- hình ảnh -->
           <div class="card-img">
             <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>"><img
                 src="<?= URL_ROOT ?>/public/images/<?= $key['image'] ?>" class="product-image" alt=""></a>
           </div>
 
+          <!-- Tên sản phẩm -->
           <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>">
             <h1><?= $key['name'] ?></h1>
           </a>
 
+          <!-- Giá gốc -->
           <?php
           if ($key['promotionPrice'] < $key['originalPrice']) { ?>
             <p class="promotion-price"><del><?= number_format($key['originalPrice'], 0, '', ',') ?>₫</del></p>
@@ -144,13 +156,14 @@
 
   </div>
 
+  <!-- ######################################################################### -->
   <div class="title">Sản phẩm mới</div>
-
   <div class="content">
     <?php
     if (count($data['NewproductsList']) > 0) {
       foreach ($data['NewproductsList'] as $key) { ?>
         <div class="card">
+          <!-- Giá khuyến mãi -->
           <?php
           if ($key['promotionPrice'] < $key['originalPrice']) { ?>
             <div class="discount">
@@ -158,18 +171,26 @@
             </div>
           <?php }
           ?>
+
+          <!--Hình ảnh -->
           <div class="card-img">
             <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>"><img
                 src="<?= URL_ROOT ?>/public/images/<?= $key['image'] ?>" class="product-image" alt=""></a>
           </div>
+
+          <!-- Tên product -->
           <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>">
             <h1><?= $key['name'] ?></h1>
           </a>
+
+          <!-- Giá tiền và giá gốc -->
           <?php
           if ($key['promotionPrice'] < $key['originalPrice']) { ?>
             <p class="promotion-price"><del><?= number_format($key['originalPrice'], 0, '', ',') ?>₫</del></p>
           <?php }
           ?>
+
+          <!-- Hàng tồn, đã bán, v.v... -->
           <p class="original-price"><?= number_format($key['promotionPrice'], 0, '', ',') ?>₫</p>
           <p class="qty-card">Kho: <?= $key['qty'] ?></p>
           <p class="sold-count">Đã bán: <?= $key['soldCount'] ?></p>
@@ -183,8 +204,8 @@
 
   </div>
 
+  <!-- ######################################################################### -->
   <div class="title">Đang khuyến mãi</div>
-
   <div class="content">
     <?php
     if (count($data['DiscountproductsList']) > 0) {
@@ -222,6 +243,7 @@
   </div>
 
 
+  <!-- Hiệu ứng slide trượt -->
   <script>
     let slideIndex = 1;
     showSlides(slideIndex);

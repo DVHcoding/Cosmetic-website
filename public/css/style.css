@@ -192,7 +192,10 @@ li {
   border: 1px solid rgb(184, 56, 67);
   border-radius: 5px;
   transition: 0.3s;
+
 }
+
+
 
 /*RESPONSIVE MENU START*/
 input[type=checkbox] {
