@@ -2,14 +2,21 @@
 
 class user extends ControllerBase
 {
+    // login controller
     public function login()
     {
+        // Nếu người dùng bấm nút đăng nhập (nghĩa là có request trong form)
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Lấy thông tin từ 2 ô input là email và password
             $email    = $_POST['email'];
             $password = $_POST['password'];
 
-            $user   = $this->model("userModel");
+            // Tạo đối tượng user từ userModel
+            $user = $this->model("userModel");
+            // Gọi hàm checkLogin từ userModel
             $result = $user->checkLogin($email, $password);
+
+
             if ($result) {
                 // Get user
                 $u = $result->fetch_assoc();
@@ -34,7 +41,7 @@ class user extends ControllerBase
             } else {
                 $this->view("client/login", [
                     "headTitle" => "Đăng nhập",
-                    "message"   => "Tài khoản hoặc mật khẩu không đúng!"
+                    "message"   => "Tài khoản hoặc mật khẩu không đúng hoặc tk đã bị khóa!"
                 ]);
             }
         } else {
