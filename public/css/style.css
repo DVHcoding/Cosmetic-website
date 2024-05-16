@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Pacifico&family=Pangolin&family=Sansita+Swashed:wght@300&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Pangolin', cursive;
+  font-family: 'Montserrat', 'sans-serif';
 }
 
 /* Slideshow container */
@@ -279,9 +279,10 @@ input[type=checkbox] {
 }
 
 /*product CARD START*/
-.remove{
+.remove {
   top: 0;
 }
+
 .content {
   max-width: 1200px;
   margin-bottom: 50px;
@@ -786,18 +787,18 @@ textarea {
   background-color: rgb(255, 226, 61);
 }
 
-.right{
+.right {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.right a{
+.right a {
   background-color: rgb(255, 87, 87);
   border: 2px solid red;
 }
 
-.left{
- float: left;
+.left {
+  float: left;
 }
 
 /* Responsive */
@@ -1341,7 +1342,7 @@ textarea {
   width: 50px;
 }
 
-.cancel{
+.cancel {
   background-color: white;
   color: red;
   border: 1px solid red;
