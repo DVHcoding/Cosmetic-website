@@ -21,7 +21,7 @@
                                         <th>Số lượng</th>
                                         <th>Đã dùng</th>
                                         <th>Ngày hết hạn</th>
-                                        <th>Trạng thái</th>
+
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -29,7 +29,7 @@
                                     <?php
                                     $count = 0;
                                     foreach ($data['voucherList'] as $key => $value) {
-                                    ?>
+                                        ?>
                                         <tr>
                                             <td><?= ++$count ?></td>
                                             <td><?= $value['code'] ?></td>
@@ -37,22 +37,12 @@
                                             <td><?= $value['quantity'] ?></td>
                                             <td><?= $value['usedCount'] ?></td>
                                             <td><?= date("d/m/Y", strtotime($value['expirationDate'])) ?></td>
-                                            <?php
-                                            if ($value['status']) { ?>
-                                                <td><span class="active">Kích hoạt</span></td>
-                                            <?php } else { ?>
-                                                <td><span class="block">Khóa</span></td>
-                                            <?php }
-                                            ?>
+
                                             <td>
-                                                <?php
-                                                if ($value['status']) { ?>
-                                                    <a class="button-red" href="<?= URL_ROOT . '/voucherManage/changeStatus/' . $value['id'] ?>">Khóa</a>
-                                                <?php } else { ?>
-                                                    <a class="button-green" href="<?= URL_ROOT . '/voucherManage/changeStatus/' . $value['id'] ?>">Mở</a>
-                                                <?php }
-                                                ?>
-                                                </a>
+                                                <a class="button-red"
+                                                    href="<?= URL_ROOT . '/voucherManage/delete/' . $value['id'] ?>">Xóa</a>
+                                                <a class="button-normal"
+                                                    href="<?= URL_ROOT . '/voucherManage/edit/' . $value['id'] ?>">Sửa</a>
                                             </td>
                                         </tr>
                                     <?php }

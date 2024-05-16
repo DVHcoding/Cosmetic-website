@@ -18,40 +18,40 @@ class voucherModel
 
     public function getAll()
     {
-        $db = DB::getInstance();
-        $sql = "SELECT * FROM vouchers";
+        $db     = DB::getInstance();
+        $sql    = "SELECT * FROM vouchers";
         $result = mysqli_query($db->con, $sql);
         return $result;
     }
 
     public function getByCode($code)
     {
-        $db = DB::getInstance();
-        $sql = "SELECT * FROM vouchers WHERE code='$code' AND status=1";
+        $db     = DB::getInstance();
+        $sql    = "SELECT * FROM vouchers WHERE code='$code' AND status=1";
         $result = mysqli_query($db->con, $sql);
         return $result;
     }
 
     public function getByIdAdmin($Id)
     {
-        $db = DB::getInstance();
-        $sql = "SELECT * FROM vouchers WHERE Id='$Id'";
+        $db     = DB::getInstance();
+        $sql    = "SELECT * FROM vouchers WHERE Id='$Id'";
         $result = mysqli_query($db->con, $sql);
         return $result;
     }
 
     public function changeStatus($Id)
     {
-        $db = DB::getInstance();
-        $sql = "UPDATE vouchers SET status = !status WHERE Id='$Id'";
+        $db     = DB::getInstance();
+        $sql    = "UPDATE vouchers SET status = !status WHERE Id='$Id'";
         $result = mysqli_query($db->con, $sql);
         return $result;
     }
 
     public function insert($data)
     {
-        $db = DB::getInstance();
-        $sql = "INSERT INTO vouchers VALUES (NULL, $data[percentDiscount], $data[quantity], '$data[code]', '$data[expirationDate]',1,0)";
+        $db     = DB::getInstance();
+        $sql    = "INSERT INTO vouchers VALUES (NULL, $data[percentDiscount], $data[quantity], '$data[code]', '$data[expirationDate]',1,0)";
         $result = mysqli_query($db->con, $sql);
         return $result;
     }
@@ -63,8 +63,8 @@ class voucherModel
             if (intval($voucher['usedCount']) == intval($voucher['quantity'])) {
                 return false;
             } else {
-                $db = DB::getInstance();
-                $sql = "SELECT * FROM user_voucher WHERE userId=" . $_SESSION['user_id'] . " AND voucherId=" . $voucher['id'];
+                $db     = DB::getInstance();
+                $sql    = "SELECT * FROM user_voucher WHERE userId=" . $_SESSION['user_id'] . " AND voucherId=" . $voucher['id'];
                 $result = mysqli_query($db->con, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     return false;
@@ -82,7 +82,7 @@ class voucherModel
         if (intval($voucher['usedCount']) == intval($voucher['quantity'])) {
             return false;
         }
-        $db = DB::getInstance();
+        $db  = DB::getInstance();
         $sql = "UPDATE vouchers SET usedCount = usedCount + 1 WHERE code='$code'";
         if (mysqli_query($db->con, $sql)) {
 
@@ -96,11 +96,30 @@ class voucherModel
 
     public function cancel($code)
     {
-        $db = DB::getInstance();
+        $db  = DB::getInstance();
         $sql = "UPDATE vouchers SET usedCount = usedCount - 1 WHERE code='$code'";
         if (mysqli_query($db->con, $sql)) {
             return true;
         }
         return false;
     }
+
+    // Hàm update voucher
+    public function update($id, $name)
+    {
+        $db     = DB::getInstance();
+        $sql    = "UPDATE vouchers SET code = '" . $name . "' WHERE id=" . $id;
+        $result = mysqli_query($db->con, $sql);
+        return $result;
+    }
+
+    // Hàm xóa voucher
+    public function delete($id)
+    {
+        $db     = DB::getInstance();
+        $sql    = "DELETE FROM vouchers WHERE id=$id";
+        $result = mysqli_query($db->con, $sql);
+        return $result;
+    }
+
 }
