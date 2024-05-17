@@ -42,10 +42,9 @@
                                             <td><?= date("d/m/Y", strtotime($value['createdDate'])) ?></td>
 
 
-
                                             <td>
                                                 <a class="button-red"
-                                                    href="<?= URL_ROOT . '/productManage/edit/' . $value['id'] ?>">Xóa
+                                                    href="<?= URL_ROOT . '/productManage/delete/' . $value['id'] ?>">Xóa
                                                 </a>
 
                                                 <a class="button-normal"
