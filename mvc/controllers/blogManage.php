@@ -54,13 +54,17 @@ class blogManage extends ControllerBase
 
     public function add()
     {
+        // Kiểm tra vai trò của người dùng, nếu không phải là admin thì chuyển hướng đến trang 'home'
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
 
+        // Nếu phương thức của request là POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $blog   = $this->model("blogModel");
+            $blog = $this->model("blogModel");
+            // Thêm bài viết mới vào CSDL và lấy kết quả trả về
             $result = $blog->insert($_POST);
+            // Hiển thị thông báo thành công hoặc lỗi
             if ($result) {
                 $this->view("admin/addNewBlog", [
                     "headTitle" => "Quản lý Blog",
@@ -75,6 +79,7 @@ class blogManage extends ControllerBase
                 ]);
             }
         } else {
+            // Hiển thị form thêm mới bài viết
             $this->view("admin/addNewBlog", [
                 "headTitle" => "Thêm mới Blog",
                 "cssClass"  => "none",
@@ -84,14 +89,20 @@ class blogManage extends ControllerBase
 
     public function edit($id = "")
     {
+        // Kiểm tra vai trò của người dùng, nếu không phải là admin thì chuyển hướng đến trang 'home'
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
         $blog = $this->model("blogModel");
 
+        // Nếu phương thức của request là POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Cập nhật thông tin của bài viết
             $r = $blog->update();
+            // Lấy thông tin chi tiết của bài viết để hiển thị trong thông báo 
             $b = $blog->getById($_POST['id']);
+
+            // Hiển thị thông báo thành công hoặc lỗi
             if ($r) {
                 $this->view("admin/editBlog", [
                     "headTitle" => "Xem/Cập nhật Blog",
@@ -108,6 +119,7 @@ class blogManage extends ControllerBase
                 ]);
             }
         } else {
+            // Hiển thị form chỉnh sửa bài viết
             $b = $blog->getById($id);
             $this->view("admin/editBlog", [
                 "headTitle" => "Xem/Cập nhật Blog",
@@ -119,8 +131,11 @@ class blogManage extends ControllerBase
 
     public function delete($id)
     {
-        $blog   = $this->model("blogModel");
+        $blog = $this->model("blogModel");
+        // Xóa bài viết khỏi CSDL
         $result = $blog->delete($id);
+
+        // Chuyển hướng đến trang 'blogManage' sau khi xóa
         if ($result) {
             $this->redirect("blogManage");
         }
