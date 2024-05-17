@@ -14,7 +14,7 @@
   $listCategory = $result->fetch_all(MYSQLI_ASSOC);
   ?>
   <nav class="navbar">
-    <div class="logo">HUYPHAM STORE</div>
+    <div class="logo">COSMETIC STORE</div>
     <div class="search-container">
       <form action="<?= URL_ROOT ?>/product/search" method="get">
         <input type="text" class="search" placeholder="Tìm kiếm.." name="keyword">
@@ -32,7 +32,7 @@
           <ul class="sub-menu">
             <?php
             foreach ($listCategory as $key) { ?>
-              <li><a href="<?= URL_ROOT . '/product/category/' . $key['id'] ?>?page=1"><?= $key['name'] ?></a></li>
+                <li><a href="<?= URL_ROOT . '/product/category/' . $key['id'] ?>?page=1"><?= $key['name'] ?></a></li>
             <?php }
             ?>
           </ul>
@@ -41,17 +41,17 @@
 
         <?php
         if (isset($_SESSION['user_id'])) { ?>
-          <li class="cate">
-            <a href="#"><?= $_SESSION['user_name'] ?> <i class="fa fa-user-circle"></i></a>
-            <ul class="sub-menu">
-              <li><a href="<?= URL_ROOT . "/user/info" ?>">Thông tin tài khoản <i class="fa fa-user"></i></a></li>
-              <li><a href="<?= URL_ROOT . "/order/checkout" ?>">Đơn hàng của tôi <i class="fa fa-list-alt"></i></a></li>
-              <li><a href="<?= URL_ROOT . "/user/logout" ?>">Đăng xuất <i class="fa fa-sign-out"></i></a></li>
-            </ul>
-          </li>
+            <li class="cate">
+              <a href="#"><?= $_SESSION['user_name'] ?> <i class="fa fa-user-circle"></i></a>
+              <ul class="sub-menu">
+                <li><a href="<?= URL_ROOT . "/user/info" ?>">Thông tin tài khoản <i class="fa fa-user"></i></a></li>
+                <li><a href="<?= URL_ROOT . "/order/checkout" ?>">Đơn hàng của tôi <i class="fa fa-list-alt"></i></a></li>
+                <li><a href="<?= URL_ROOT . "/user/logout" ?>">Đăng xuất <i class="fa fa-sign-out"></i></a></li>
+              </ul>
+            </li>
         <?php } else { ?>
-          <li><a href="<?= URL_ROOT . "/user/register" ?>">Đăng ký <i class="fa fa-pencil-square"></i></a></li>
-          <li><a href="<?= URL_ROOT . "/user/login" ?>">Đăng nhập <i class="fa fa-sign-in"></i></a></li>
+            <li><a href="<?= URL_ROOT . "/user/register" ?>">Đăng ký <i class="fa fa-pencil-square"></i></a></li>
+            <li><a href="<?= URL_ROOT . "/user/login" ?>">Đăng nhập <i class="fa fa-sign-in"></i></a></li>
         <?php }
         ?>
         <li><a href="<?= URL_ROOT . "/cart/checkout" ?>" id="bag">Giỏ hàng <i class="fa fa-shopping-bag"></i>
@@ -67,34 +67,34 @@
     <?php
     if (count($data['productList']) > 0) {
       foreach ($data['productList'] as $key) { ?>
-        <div class="card">
-          <?php
-          if ($key['promotionPrice'] < $key['originalPrice']) { ?>
-            <div class="discount">
-              -<?= ceil(100 - (($key['promotionPrice'] / $key['originalPrice'] * 100))) ?>%
+            <div class="card">
+              <?php
+              if ($key['promotionPrice'] < $key['originalPrice']) { ?>
+                  <div class="discount">
+                    -<?= ceil(100 - (($key['promotionPrice'] / $key['originalPrice'] * 100))) ?>%
+                  </div>
+              <?php }
+              ?>
+              <div class="card-img">
+                <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>"><img
+                    src="<?= URL_ROOT ?>/public/images/<?= $key['image'] ?>" class="product-image" alt=""></a>
+              </div>
+              <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>">
+                <h1><?= $key['name'] ?></h1>
+              </a>
+              <?php
+              if ($key['promotionPrice'] < $key['originalPrice']) { ?>
+                  <p class="promotion-price"><del><?= number_format($key['originalPrice'], 0, '', ',') ?>₫</del></p>
+              <?php }
+              ?>
+              <p class="original-price"><?= number_format($key['promotionPrice'], 0, '', ',') ?>₫</p>
+              <p class="qty-card">Kho: <?= $key['qty'] ?></p>
+              <p class="sold-count">Đã bán: <?= $key['soldCount'] ?></p>
+              <p><a href="<?= URL_ROOT . '/cart/addItemcart/' . $key['id'] ?>"><button>Thêm vào giỏ</button></a></p>
             </div>
-          <?php }
-          ?>
-          <div class="card-img">
-            <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>"><img
-                src="<?= URL_ROOT ?>/public/images/<?= $key['image'] ?>" class="product-image" alt=""></a>
-          </div>
-          <a href="<?= URL_ROOT . '/product/single/' . $key['id'] ?>">
-            <h1><?= $key['name'] ?></h1>
-          </a>
-          <?php
-          if ($key['promotionPrice'] < $key['originalPrice']) { ?>
-            <p class="promotion-price"><del><?= number_format($key['originalPrice'], 0, '', ',') ?>₫</del></p>
-          <?php }
-          ?>
-          <p class="original-price"><?= number_format($key['promotionPrice'], 0, '', ',') ?>₫</p>
-          <p class="qty-card">Kho: <?= $key['qty'] ?></p>
-          <p class="sold-count">Đã bán: <?= $key['soldCount'] ?></p>
-          <p><a href="<?= URL_ROOT . '/cart/addItemcart/' . $key['id'] ?>"><button>Thêm vào giỏ</button></a></p>
-        </div>
-      <?php }
+        <?php }
     } else { ?>
-      <h3>Không tìm thấy sản phẩm...</h3>
+        <h3>Không tìm thấy sản phẩm...</h3>
     <?php }
     ?>
   </div>

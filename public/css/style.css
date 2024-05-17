@@ -120,18 +120,18 @@ li {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: rgb(255, 209, 204);
-  color: rgb(184, 56, 67);
-  border-bottom: rgb(184, 56, 67) solid 1px;
-  border-top: rgb(184, 56, 67) solid 1px;
+  background-color: rgb(182, 255, 181);
+  color: #000;
 }
 
 .nav-links a {
-  color: rgb(184, 56, 67);
+  color: #000;
 }
 
 .logo {
-  font-size: 32px;
+  width: 200px;
+  font-size: 28px;
+  word-wrap: none;
 }
 
 .menu {
@@ -139,14 +139,14 @@ li {
 }
 
 .menu li:hover {
-  background-color: rgb(184, 56, 67);
-  color: rgb(255, 209, 204);
+  background-color: rgb(0, 194, 119);
+  color: white;
   border-radius: 5px;
   transition: 0.3s;
 }
 
 .menu li:hover a {
-  color: rgb(255, 209, 204);
+  color: white;
   transition: 0.3s;
 }
 
@@ -161,12 +161,12 @@ li {
 .sub-menu {
   width: 200px;
   height: 200px;
-  background-color: rgb(255, 209, 204);
+  background-color: rgb(182, 255, 181);
   padding: 7px 0;
   position: absolute;
   display: none;
   z-index: 100;
-  border: rgb(184, 56, 67) solid 1px;
+  border: rgb(0, 194, 119) solid 1px;
   overflow: scroll;
 }
 
@@ -176,11 +176,11 @@ li {
 }
 
 .sub-menu li a {
-  color: rgb(184, 56, 67) !important;
+  color: #000 !important;
 }
 
 .sub-menu li:hover a {
-  color: rgb(255, 209, 204) !important;
+  color: white !important;
   transition: 0.3s;
 }
 
@@ -189,7 +189,7 @@ li {
 }
 
 .menu-active {
-  border: 1px solid rgb(184, 56, 67);
+  border: 1px solid rgb(0, 194, 119);
   border-radius: 5px;
   transition: 0.3s;
 
@@ -215,7 +215,7 @@ input[type=checkbox] {
     left: 0;
     text-align: center;
     padding: 16px 0;
-    background-color: rgb(255, 209, 204);
+    background-color: rgb(182, 255, 181);
     top: 88px;
   }
 
@@ -260,8 +260,8 @@ input[type=checkbox] {
 
 .title {
   text-align: center;
-  background-color: rgb(255, 209, 204);
-  color: rgb(184, 56, 67);
+  background-color: rgb(182, 255, 181);
+  color: #000;
   height: 70px;
   line-height: 70px;
   font-size: 28px;
@@ -272,7 +272,7 @@ input[type=checkbox] {
 
 .title2 {
   text-align: center;
-  color: rgb(184, 56, 67);
+  color: #000;
   height: 70px;
   line-height: 70px;
   font-size: 28px;
@@ -312,7 +312,7 @@ input[type=checkbox] {
 }
 
 .card:hover {
-  border: rgb(184, 56, 67) solid 1px;
+  border: rgb(0, 194, 119) solid 1px;
 }
 
 .card-img {
@@ -383,17 +383,17 @@ input[type=checkbox] {
   outline: 0;
   padding: 12px;
   color: white;
-  background-color: rgb(184, 56, 67);
+  background-color: rgb(0, 194, 119);
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-  transition: 0.2s;
+  transition: 0.25s ease;
 }
 
 .card button:hover {
   color: #323232;
-  background-color: rgb(224, 210, 9);
+  background-color: rgb(182, 255, 181);
   transition: 0.2s;
 }
 
@@ -401,7 +401,7 @@ input[type=checkbox] {
 
 /*FOOTER START*/
 footer {
-  background-color: rgb(255, 209, 204);
+  background-color: rgb(182, 255, 181);
   color: rgb(27, 26, 26);
   border-bottom: rgb(184, 56, 67) solid 1px;
   border-top: rgb(184, 56, 67) solid 1px;
@@ -467,7 +467,7 @@ footer {
   margin-right: auto;
   margin-left: auto;
   border: 12px solid transparent;
-  border-bottom-color: rgb(184, 56, 67);
+  border-bottom-color: #000;
 }
 
 .login-header {
@@ -535,7 +535,7 @@ textarea {
 
 /* Buttons' focus effect */
 .login input[type="submit"]:focus {
-  border-color: rgb(184, 56, 67);
+  border-color: #000;
 }
 
 /*FORM LOGIN/REGISTER END*/
@@ -564,7 +564,7 @@ textarea {
   bottom: 20%;
   left: 23%;
   background-color: wheat;
-  color: rgb(184, 56, 67);
+  color: #000;
   border: 1px solid rgb(184, 56, 67);
   border-radius: 10px;
 }
@@ -577,7 +577,7 @@ textarea {
   bottom: 20%;
   left: 28%;
   background-color: wheat;
-  color: rgb(184, 56, 67);
+  color: #000;
   border: 1px solid rgb(184, 56, 67);
   border-radius: 10px;
 }
@@ -590,7 +590,7 @@ textarea {
   bottom: 20%;
   left: 33%;
   background-color: wheat;
-  color: rgb(184, 56, 67);
+  color: #000;
   border: 1px solid rgb(184, 56, 67);
   border-radius: 10px;
 }
@@ -764,6 +764,8 @@ textarea {
 .product-price {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .product-price span {
@@ -775,9 +777,9 @@ textarea {
 
 .cart-btn {
   display: inline-block;
-  background-color: rgb(184, 56, 67);
+  background-color: rgb(182, 255, 181);
   font-size: 16px;
-  color: #FFFFFF;
+  color: #000;
   text-decoration: none;
   padding: 8px 20px;
   transition: all .5s;
@@ -786,8 +788,8 @@ textarea {
 }
 
 .cart-btn:hover {
-  color: #43474D;
-  background-color: rgb(255, 226, 61);
+  color: #fff;
+  background-color: rgb(0, 194, 119);
 }
 
 .right {
@@ -842,17 +844,17 @@ textarea {
 }
 
 .search-container {
-  width: 500px;
+  width: 480px;
   text-align: center;
 }
 
 .search {
-  width: 70%;
+  width: 80%;
   padding: 12px;
   font-size: 17px;
-  border: solid 1px rgb(184, 56, 67);
+  border: solid 1px rgb(0, 194, 119);
   background-color: rgb(249, 249, 249);
-  color: rgb(184, 56, 67);
+  color: #000;
   border-radius: 10px;
 }
 
@@ -861,12 +863,12 @@ textarea {
   padding: 12px 16px;
   margin-top: 8px;
   margin-right: 16px;
-  background: rgb(184, 56, 67);
+  background: rgb(0, 194, 119);
   font-size: 17px;
-  border: solid 1px rgb(184, 56, 67);
   cursor: pointer;
-  color: rgb(255, 209, 204);
+  color: white;
   border-radius: 10px;
+  border: none;
 }
 
 /*START TABLE*/
@@ -895,7 +897,7 @@ textarea {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: rgb(184, 56, 67);
+  background-color: #000;
   color: white;
 }
 
@@ -1371,7 +1373,7 @@ textarea {
 }
 
 .pagination a.active {
-  background-color: rgb(184, 56, 67);
+  background-color: #000;
   color: white;
   border-radius: 5px;
 }

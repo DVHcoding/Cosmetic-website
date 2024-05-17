@@ -16,7 +16,7 @@
 
   <!-- Header -->
   <nav class="navbar">
-    <div class="logo">HUYPHAM STORE</div>
+    <div class="logo">COMESTIC STORE</div>
 
     <div class="search-container">
       <form action="<?= URL_ROOT ?>/product/search" method="get">

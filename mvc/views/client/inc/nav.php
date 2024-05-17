@@ -7,7 +7,7 @@ $result       = $category->getAllClient();
 $listCategory = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 <nav class="navbar">
-  <div class="logo">HUYPHAM STORE</div>
+  <div class="logo">COSMETIC STORE</div>
   <div class="search-container">
     <form action="<?= URL_ROOT ?>/product/search" method="get">
       <input type="text" class="search" placeholder="Tìm kiếm.." name="keyword">

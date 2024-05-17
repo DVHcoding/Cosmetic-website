@@ -81,7 +81,7 @@ class order extends ControllerBase
             $this->view("client/message", [
                 "headTitle" => "Thông báo",
                 "message"   => "Đặt hàng thành công!",
-                "thanks"    => "Cuộc sống có nhiều lựa chọn, cảm ơn vì bạn đã chọn và tin tưởng HUYPHAM STORE!"
+                "thanks"    => "Cuộc sống có nhiều lựa chọn, cảm ơn vì bạn đã chọn và tin tưởng COSMETIC STORE!"
             ]);
         } else {
             $this->view("client/message", [
