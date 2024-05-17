@@ -26,7 +26,6 @@
                                         <th>Tên sản phẩm</th>
                                         <th>Hình ảnh</th>
                                         <th>Ngày tạo</th>
-                                        <th>Trạng thái</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -41,27 +40,17 @@
                                             <td><img class="img" src="<?= URL_ROOT . '/public/images/' . $value['image'] ?>"
                                                     alt=""></td>
                                             <td><?= date("d/m/Y", strtotime($value['createdDate'])) ?></td>
-                                            <?php
-                                            if ($value['status']) { ?>
-                                                <td><span class="active">Kích hoạt</span></td>
-                                            <?php } else { ?>
-                                                <td><span class="block">Khóa</span></td>
-                                            <?php }
-                                            ?>
+
+
+
                                             <td>
-                                                <?php
-                                                if ($value['status']) { ?>
-                                                    <a class="button-red"
-                                                        href="<?= URL_ROOT . '/productManage/changeStatus/' . $value['id'] ?>">Khóa</a>
-                                                <?php } else { ?>
-                                                    <a class="button-green"
-                                                        href="<?= URL_ROOT . '/productManage/changeStatus/' . $value['id'] ?>">Mở</a>
-                                                <?php }
-                                                ?>
+                                                <a class="button-red"
+                                                    href="<?= URL_ROOT . '/productManage/edit/' . $value['id'] ?>">Xóa
                                                 </a>
+
                                                 <a class="button-normal"
-                                                    href="<?= URL_ROOT . '/productManage/edit/' . $value['id'] ?>">Chi
-                                                    tiết/Sửa</a>
+                                                    href="<?= URL_ROOT . '/productManage/edit/' . $value['id'] ?>">Sửa
+                                                </a>
                                             </td>
                                         </tr>
                                     <?php }
