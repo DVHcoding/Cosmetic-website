@@ -13,7 +13,8 @@
                             <form action="<?= URL_ROOT . '/productManage/add' ?>" method="POST"
                                 enctype="multipart/form-data">
                                 <p class="<?= $data['cssClass'] ?>">
-                                    <?= isset($data['message']) ? $data['message'] : "" ?></p>
+                                    <?= isset($data['message']) ? $data['message'] : "" ?>
+                                </p>
                                 <label for="name">Tên sản phẩm</label>
                                 <input type="text" id="name" name="name" required>
                                 <label for="cate">Danh mục</label>
@@ -29,9 +30,12 @@
                                 <label for="image">Hình ảnh 1</label>
                                 <input type="file" id="image" name="image" required>
                                 <label for="image">Hình ảnh 2</label>
-                                <input type="file" id="image2" name="image2" required>
+                                <input type="file" id="image2" name="image2">
                                 <label for="image">Hình ảnh 3</label>
-                                <input type="file" id="image3" name="image3" required>
+                                <input type="file" id="image3" name="image3">
+
+
+
                                 <label for="originalPrice">Giá gốc</label>
                                 <input type="number" id="originalPrice" name="originalPrice" required>
                                 <label for="promotionPrice">Giá khuyến mãi</label>

@@ -129,6 +129,22 @@ class productManage extends ControllerBase
         }
     }
 
+    // Controller xóa sản phẩm 
+    public function delete($id = '')
+    {
+        // Nếu người dùng không phải admin thì đẩy về trang chủ
+        if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
+            $this->redirect("home");
+        }
+
+        // Khởi tạo đối tượng product từ productModels
+        $product = $this->model("productModel");
+        // Gọi hàm delete
+        $product->delete($id);
+
+        $this->redirect("productManage");
+    }
+
     public function changeStatus($id)
     {
         $product = $this->model("productModel");
@@ -137,4 +153,6 @@ class productManage extends ControllerBase
             $this->redirect("productManage");
         }
     }
+
+
 }
