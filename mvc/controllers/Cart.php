@@ -133,16 +133,20 @@ class cart extends ControllerBase
         echo '<script>window.history.back();</script>';
     }
 
+
     public function getTotalPricecart()
     {
-        $cart = $this->model("cartModel");
+        $cart = $this->model("cartModel");  // Tạo đối tượng cart từ cartModel
+        // Trả về tổng giá trị giỏ hàng của người dùng
         return ($cart->getTotalPrice($_SESSION['user_id']))->fetch_assoc();
     }
 
     public function getTotalQuantitycart()
     {
+        // Kiểm tra người dùng đã đăng nhập chưa
         if (isset($_SESSION['user_id'])) {
-            $cart = $this->model("cartModel");
+            $cart = $this->model("cartModel"); // Tạo đối tượng cart từ cartModel
+            // Trả về tổng số lượng sản phẩm trong giỏ hàng của người dùng
             return ($cart->getTotalQuantitycart($_SESSION['user_id']))->fetch_assoc();
         }
         return 0;
