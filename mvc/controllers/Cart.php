@@ -112,18 +112,24 @@ class cart extends ControllerBase
 
     public function removeItemcart($productId)
     {
+        // Xóa sản phẩm khỏi session giỏ hàng
         unset($_SESSION['cart'][$productId]);
-        if (isset($_SESSION['user_id'])) {
-            $cart = $this->model("cartModel");
+
+        if (isset($_SESSION['user_id'])) { // Kiểm tra người dùng đã đăng nhập chưa
+            $cart = $this->model("cartModel"); // Tạo đối tượng cart từ cartModel
+
             if ($cart->remove($_SESSION['user_id'], $productId)) {
+                // Nếu giỏ hàng trống sau khi xóa sản phẩm, hủy bỏ voucher nếu có
                 if ($_SESSION['cart'] == null) {
                     $this->cancelVoucher();
                 }
             } else {
-                echo 'lỗi';
-                die();
+                echo 'lỗi'; // Thông báo lỗi nếu xóa sản phẩm thất bại
+                die(); // Dừng chương trình
             }
         }
+
+        // Trở lại trang trước đó
         echo '<script>window.history.back();</script>';
     }
 
