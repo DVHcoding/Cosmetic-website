@@ -149,27 +149,31 @@ class cart extends ControllerBase
             // Trả về tổng số lượng sản phẩm trong giỏ hàng của người dùng
             return ($cart->getTotalQuantitycart($_SESSION['user_id']))->fetch_assoc();
         }
-        return 0;
+        return 0; // Trả về 0 nếu người dùng chưa đăng nhập
     }
 
     public function checkout()
     {
-        if (isset($_SESSION['user_id'])) {
-            $cart   = $this->model("cartModel");
+        if (isset($_SESSION['user_id'])) { // Kiểm tra người dùng đã đăng nhập chưa
+            $cart = $this->model("cartModel");// Tạo đối tượng cart từ cartModel
+            // Lấy giỏ hàng của người dùng từ cơ sở dữ liệu
             $result = ($cart->getByUserId($_SESSION['user_id']));
-            if (count($result) > 0) {
+            if (count($result) > 0) { // Nếu giỏ hàng không trống
+                // Lưu giỏ hàng vào session và hiển thị trang thanh toán
                 $_SESSION['cart'] = $result;
                 $this->view("client/checkout", [
                     "headTitle" => "Đơn hàng của tôi",
                     'cart'      => $result
                 ]);
-            } else {
+            } else { // Nếu giỏ hàng trống
+                // Hiển thị trang thanh toán với giỏ hàng trống
                 $this->view("client/checkout", [
                     "headTitle" => "Đơn hàng của tôi",
                     'cart'      => isset($_SESSION['cart']) ? $_SESSION['cart'] : []
                 ]);
             }
-        } else {
+        } else {  // Nếu người dùng chưa đăng nhập
+            // Hiển thị trang thanh toán với giỏ hàng từ session
             $this->view("client/checkout", [
                 "headTitle" => "Đơn hàng của tôi",
                 'cart'      => isset($_SESSION['cart']) ? $_SESSION['cart'] : []
@@ -179,15 +183,18 @@ class cart extends ControllerBase
 
     public function check()
     {
-        $voucher = $this->model("voucherModel");
-        $result  = $voucher->check($_POST['code']);
-        if ($result) {
+        $voucher = $this->model("voucherModel"); // Tạo đối tượng voucher từ voucherModel
+        // Kiểm tra mã giảm giá
+        $result = $voucher->check($_POST['code']);
+        if ($result) { // Nếu mã giảm giá hợp lệ
+            // Lưu thông tin mã giảm giá vào session
             $_SESSION['voucher']['percentDiscount'] = $result['percentDiscount'];
             $_SESSION['voucher']['code']            = $result['code'];
-        } else {
+        } else { // Nếu mã giảm giá không hợp lệ
             echo '<script>alert("Mã giảm giá không đúng, đã sử dụng hoặc số lượng đã hết!");window.history.back();</script>';
-            die();
+            die();  // Dừng chương trình
         }
+        // Chuyển hướng đến trang thanh toán
         $this->redirect("cart", "checkout");
     }
 
