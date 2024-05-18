@@ -198,31 +198,51 @@ class cart extends ControllerBase
         $this->redirect("cart", "checkout");
     }
 
+    // Hàm xử lý khi người dùng áp dụng mã giảm giá (voucher)
     public function voucher()
     {
+        // Lấy mô hình 'voucherModel'
         $voucher = $this->model("voucherModel");
-        $result  = $voucher->used($_POST['code']);
+
+        // Kiểm tra xem mã giảm giá đã được sử dụng hay chưa
+        $result = $voucher->used($_POST['code']);
+
+        // Nếu mã giảm giá hợp lệ
         if ($result) {
+            // Lưu trữ phần trăm giảm giá vào session
             $_SESSION['voucher']['percentDiscount'] = $result['percentDiscount'];
-            $_SESSION['voucher']['code']            = $result['code'];
+            // Lưu trữ mã giảm giá vào session
+            $_SESSION['voucher']['code'] = $result['code'];
         } else {
+            // Nếu mã giảm giá không hợp lệ hoặc đã hết số lượng
             echo '<script>alert("Mã giảm giá không đúng, đã sử dụng hoặc số lượng đã hết!");window.history.back();</script>';
+            // Kết thúc xử lý để người dùng quay lại trang trước
             die();
         }
+
+        // Chuyển hướng người dùng đến trang thanh toán giỏ hàng
         $this->redirect("cart", "checkout");
     }
 
+    // Hàm xử lý khi người dùng hủy bỏ mã giảm giá đã áp dụng
     public function cancelVoucher()
     {
+        // Lấy mô hình 'voucherModel'
         $voucher = $this->model("voucherModel");
+        // Hủy bỏ mã giảm giá hiện tại
         $voucher->cancel($_SESSION['voucher']['code']);
+        // Xóa thông tin mã giảm giá khỏi session
         unset($_SESSION['voucher']);
+        // Chuyển hướng người dùng đến trang thanh toán giỏ hàng
         $this->redirect("cart", "checkout");
     }
 
+    // Hàm xử lý khi người dùng xóa giỏ hàng
     public function deleteCart()
     {
+        // Lấy mô hình 'cartModel'
         $cart = $this->model("cartModel");
+        // Xóa toàn bộ giỏ hàng của người dùng
         $cart->deleteCart();
     }
 }
