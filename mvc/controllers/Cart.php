@@ -66,6 +66,7 @@ class cart extends ControllerBase
         echo '<script>window.history.back();</script>';
     }
 
+    // Phương thức tính tổng số lượng sản phẩm trong giỏ hàng
     public function getTotal()
     {
         $total = 0;
@@ -75,27 +76,36 @@ class cart extends ControllerBase
         return $total;
     }
 
+    // Phương thức cập nhật số lượng sản phẩm trong giỏ hàng
     public function updateItemcart($productId, $qty)
     {
+        // Tạo đối tượng product từ productModel
         $product = $this->model("productModel");
-        $check   = $product->checkQuantity($productId, $qty);
-        if (isset($_SESSION['user_id'])) {
+        // Kiểm tra số lượng sản phẩm có đủ để cập nhật không
+        $check = $product->checkQuantity($productId, $qty);
+
+        if (isset($_SESSION['user_id'])) { // Kiểm tra người dùng đã đăng nhập chưa
             $cart = $this->model("cartModel");
-            if ($check) {
+
+            if ($check) { // Nếu số lượng sản phẩm đủ
+                // Cập nhật số lượng sản phẩm trong giỏ hàng của người dùng
                 if (!$cart->editQuanity($_SESSION['user_id'], $productId, $qty)) {
-                    http_response_code(501);
+                    http_response_code(501); // Trả về mã lỗi 501 nếu cập nhật thất bại
                 }
+
+                // Cập nhật số lượng sản phẩm trong session giỏ hàng
                 $_SESSION['cart'][$productId]['quantity'] = $qty;
-                http_response_code(200);
+                http_response_code(200); // Trả về mã thành công 200
             } else {
-                http_response_code(501);
+                http_response_code(501); // Trả về mã lỗi 501 nếu số lượng không đủ
             }
-        } else {
-            if ($check) {
+        } else {  // Nếu người dùng chưa đăng nhập
+            if ($check) { // Nếu số lượng sản phẩm đủ
+                // Cập nhật số lượng sản phẩm trong session giỏ hàng
                 $_SESSION['cart'][$productId]['quantity'] = $qty;
-                http_response_code(200);
+                http_response_code(200); // Trả về mã thành công 200
             } else {
-                http_response_code(501);
+                http_response_code(501); // Trả về mã lỗi 501 nếu số lượng không đủ
             }
         }
     }
