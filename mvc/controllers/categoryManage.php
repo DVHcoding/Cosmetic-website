@@ -131,10 +131,16 @@ class categoryManage extends ControllerBase
         }
     }
 
+    // Hàm thay đổi trạng thái của danh mục
     public function changeStatus($id)
     {
+        // Tạo đối tượng category từ categoryModel
         $category = $this->model("categoryModel");
-        $result   = $category->changeStatus($id);
+
+        // Thay đổi trạng thái của danh mục đúng với id truyền vào 
+        $result = $category->changeStatus($id);
+
+        // Nếu id có tồn tại thì điều hướng về trang categoryManage
         if ($result) {
             $this->redirect("categoryManage");
         }
