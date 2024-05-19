@@ -6,32 +6,44 @@ class order extends ControllerBase
     {
         // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $order = $this->model("orderModel");
+        // Nếu tồn tại phiếu giảm giá
         if (isset($_SESSION['voucher'])) {
             $voucher = $this->model("voucherModel");
-            $check   = $voucher->used($_SESSION['voucher']['code']);
+            // Kiểm tra mã giảm giá đã sử dụng
+            $check = $voucher->used($_SESSION['voucher']['code']);
+            // Nếu mã giảm giá hợp lệ
             if ($check) {
+                // Thêm đơn hàng với giảm giá vào cơ sở dữ liệu
                 $result = $order->add($_SESSION['user_id'], $_POST['total'], $_SESSION['voucher']['percentDiscount']);
             } else {
+                // Hiển thị thông báo lỗi nếu mã giảm giá không hợp lệ hoặc đã hết lượt sử dụng
                 echo '<script>alert("Mã giảm giá không đúng hoặc số lượng đã hết!");window.history.back();</script>';
                 die();
             }
         } else {
+            // Thêm đơn hàng không có giảm giá vào cơ sở dữ liệu
             $result = $order->add($_SESSION['user_id'], $_POST['total']);
         }
 
+        // Nếu thêm đơn hàng thành công
         if ($result) {
+            // Nếu phương thức thanh toán không phải là "cod"
             if ($_POST['paymentMethod'] != "cod") {
+                // Chuyển hướng đến trang thanh toán
                 $this->payment($result, $_POST['total'], $_POST['paymentMethod']);
             } else {
+                // Xóa giỏ hàng sau khi đã đặt hàng thành công
                 $cart = $this->model("cartModel");
                 $cart->deleteCart();
                 unset($_SESSION['cart']);
                 unset($_SESSION['voucher']);
+                // Chuyển hướng đến trang thông báo đặt hàng thành công
                 $this->redirect("order", "message", [
                     "message" => "success"
                 ]);
             }
         } else {
+            // Nếu thêm đơn hàng không thành công, chuyển hướng đến trang thông báo đặt hàng thất bại
             $this->redirect("order", "message", [
                 "message" => "fail"
             ]);
@@ -41,11 +53,13 @@ class order extends ControllerBase
 
     public function checkout()
     {
+        // Lấy tất cả đơn hàng của người dùng hiện tại
         $order  = $this->model("orderModel");
         $result = $order->getByuserId($_SESSION['user_id']);
-        // Fetch
+        // Lấy danh sách đơn hàng
         $orderList = $result->fetch_all(MYSQLI_ASSOC);
 
+        // Hiển thị trang đơn hàng của người dùng
         $this->view("client/order", [
             "headTitle" => "Đơn đặt hàng của tôi",
             "orderList" => $orderList
@@ -54,17 +68,21 @@ class order extends ControllerBase
 
     public function detail($orderId)
     {
+        // Lấy chi tiết đơn hàng theo ID
         $orderDetail = $this->model("orderDetailModel");
         $result      = $orderDetail->getByorderId($orderId);
 
+        // Lấy thông tin đơn hàng theo ID
         $order       = $this->model("orderModel");
         $resultOrder = $order->getById($orderId)->fetch_assoc();
         $status      = false;
+        // Kiểm tra trạng thái đơn hàng
         if ($resultOrder['status'] == "received") {
             $status = true;
         }
-        // Fetch
+        // Lấy danh sách chi tiết đơn hàng
         $orderDetailList = $result->fetch_all(MYSQLI_ASSOC);
+        // Hiển thị trang chi tiết đơn hàng
         $this->view("client/orderDetail", [
             "headTitle"       => "Chi tiết đơn hàng: " . $orderId,
             "orderId"         => $orderId,
@@ -74,6 +92,8 @@ class order extends ControllerBase
             "deliveryStatus"  => $resultOrder['status']
         ]);
     }
+
+
 
     public function message($message)
     {
