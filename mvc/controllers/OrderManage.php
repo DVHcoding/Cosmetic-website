@@ -87,11 +87,16 @@ class orderManage extends ControllerBase
         }
     }
 
+    // Phương thức để xử lý khi đơn hàng đang được giao
     public function delivery($orderId)
     {
-        $order  = $this->model("orderModel");
+        // Lấy đối tượng model cho đơn hàng
+        $order = $this->model("orderModel");
+        // Gọi phương thức delivery từ model với tham số là ID đơn hàng
         $result = $order->delivery($orderId);
+        // Kiểm tra kết quả từ phương thức delivery
         if ($result) {
+            // Nếu thành công, chuyển hướng tới trang "orderManage"
             $this->redirect("orderManage");
         }
     }
