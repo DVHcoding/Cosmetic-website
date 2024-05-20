@@ -351,15 +351,22 @@ class order extends ControllerBase
 
     public function delete($orderId)
     {
+        // Lấy đối tượng model cho đơn hàng
         $order  = $this->model("orderModel");
         $result = $order->delete($orderId);
     }
 
+    // Phương thức để xử lý khi hủy đơn hàng
     public function cancel($orderId)
     {
-        $order  = $this->model("orderModel");
+        // Lấy đối tượng model cho đơn hàng
+        $order = $this->model("orderModel");
+        // Gọi phương thức cancel từ model với tham số là ID đơn hàng
         $result = $order->cancel($orderId);
+
+        // Kiểm tra kết quả từ phương thức cancel
         if ($result) {
+            // Nếu thành công, chuyển hướng tới trang "checkout" của "order"
             $this->redirect("order", "checkout");
         }
     }
