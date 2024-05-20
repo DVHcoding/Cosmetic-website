@@ -275,9 +275,12 @@ class order extends ControllerBase
     public function received($orderId)
     {
         // Lấy đối tượng model cho đơn hàng
-        $order  = $this->model("orderModel");
+        $order = $this->model("orderModel");
+        // Gọi phương thức received từ model với tham số là ID đơn hàng
         $result = $order->received($orderId);
+        // Kiểm tra kết quả từ phương thức received
         if ($result) {
+            // Nếu thành công, chuyển hướng tới trang "checkout" của "order"
             $this->redirect("order", "checkout");
         }
     }
