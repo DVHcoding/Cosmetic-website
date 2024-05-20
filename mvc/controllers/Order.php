@@ -271,8 +271,10 @@ class order extends ControllerBase
         }
     }
 
+    // Phương thức để xử lý khi đơn hàng đã được nhận
     public function received($orderId)
     {
+        // Lấy đối tượng model cho đơn hàng
         $order  = $this->model("orderModel");
         $result = $order->received($orderId);
         if ($result) {
