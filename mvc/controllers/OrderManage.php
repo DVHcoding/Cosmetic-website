@@ -75,9 +75,14 @@ class orderManage extends ControllerBase
     // Phương thức để xử lý khi đơn hàng đã được xử lý
     public function processed($orderId)
     {
-        $order  = $this->model("orderModel");
+        // Lấy đối tượng model cho đơn hàng
+        $order = $this->model("orderModel");
+        // Gọi phương thức processed từ model với tham số là ID đơn hàng
         $result = $order->processed($orderId);
+
+        // Kiểm tra kết quả từ phương thức processed
         if ($result) {
+            // Nếu thành công, chuyển hướng tới trang "orderManage"
             $this->redirect("orderManage");
         }
     }
