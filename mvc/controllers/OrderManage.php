@@ -42,20 +42,28 @@ class orderManage extends ControllerBase
 
     }
 
+    // Phương thức để hiển thị chi tiết đơn hàng
     public function detail($orderId)
     {
+        // Kiểm tra xem người dùng có quyền truy cập hay không
+        // Nếu người dùng không phải là Admin, chuyển hướng về trang chủ
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
 
+        // Lấy đối tượng model cho chi tiết đơn hàng
         $orderDetail = $this->model("orderDetailModel");
-        $result      = $orderDetail->getByorderId($orderId);
-        // Fetch
+        // Gọi phương thức getByorderId từ model để lấy chi tiết đơn hàng theo ID
+        $result = $orderDetail->getByorderId($orderId);
+        // Lấy tất cả kết quả truy vấn dưới dạng mảng liên kế
         $orderDetailList = $result->fetch_all(MYSQLI_ASSOC);
 
-        $order  = $this->model("orderModel");
+        // Lấy đối tượng model cho đơn hàng
+        $order = $this->model("orderModel");
+        // Gọi phương thức getById từ model để lấy thông tin đơn hàng theo ID
         $result = $order->getById($orderId);
 
+        // Hiển thị view "admin/orderDetail" với các tham số cần thiết
         $this->view("admin/orderDetail", [
             "headTitle"       => "Chi tiết đơn hàng: " . $orderId,
             "orderId"         => $orderId,
@@ -64,6 +72,7 @@ class orderManage extends ControllerBase
         ]);
     }
 
+    // Phương thức để xử lý khi đơn hàng đã được xử lý
     public function processed($orderId)
     {
         $order  = $this->model("orderModel");
