@@ -117,6 +117,7 @@ class product extends ControllerBase
             if ($result) {
                 $this->redirect("product", "single", ["Id" => $_POST['productId']]);
             } else {
+                // Hiển thị thông báo lỗi nếu thêm đánh giá thất bại
                 $result = $product->getById($_POST['productId'])->fetch_assoc();
                 $this->view("client/rating", [
                     "headTitle" => "Đánh giá",
