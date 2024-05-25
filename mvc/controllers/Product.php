@@ -126,7 +126,7 @@ class product extends ControllerBase
                 ]);
             }
         } else {
-
+            // Hiển thị form đánh giá nếu người dùng chưa đánh giá sản phẩm này
             $status = false;
             if (mysqli_num_rows($check) > 0) {
                 $p      = $productRating->getByProductIdUserId($id, $_SESSION['user_id']);
