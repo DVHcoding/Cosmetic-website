@@ -142,13 +142,17 @@ class product extends ControllerBase
         }
     }
 
+    // Phương thức thêm câu hỏi cho sản phẩm
     public function addQuestion()
     {
         $question = $this->model("questionModel");
-        $result   = $question->add($_POST['productId'], $_POST['content'], $_SESSION['user_id']);
+        // Thêm câu hỏi mới vào sản phẩm
+        $result = $question->add($_POST['productId'], $_POST['content'], $_SESSION['user_id']);
         if ($result) {
+            // Quay lại trang trước đó nếu thêm câu hỏi thành công
             echo '<script>window.history.back();</script>';
         } else {
+            // Hiển thị thông báo lỗi nếu thêm câu hỏi thất bại
             echo '<script>alert("Lỗi!");window.history.back();</script>';
         }
     }
