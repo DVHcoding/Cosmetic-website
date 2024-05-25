@@ -108,7 +108,8 @@ class product extends ControllerBase
     {
         $product       = $this->model("productModel");
         $productRating = $this->model("productRatingModel");
-        $check         = $productRating->getByProductIdUserId($id, $_SESSION['user_id']);
+        // Kiểm tra xem người dùng đã đánh giá sản phẩm này chưa
+        $check = $productRating->getByProductIdUserId($id, $_SESSION['user_id']);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $result = $productRating->add($_POST['productId'], $_POST['content'], $_POST['star'], $_SESSION['user_id']);
