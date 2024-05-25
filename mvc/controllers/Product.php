@@ -80,10 +80,12 @@ class product extends ControllerBase
     }
 
 
+    // Phương thức hiển thị danh sách sản phẩm theo danh mục
     public function category($CateId, $page)
     {
         $product = $this->model('productModel');
-        $result  = $product->getByCateId(isset($page['page']) ? $page['page'] : 1, 8, $CateId);
+        // Lấy danh sách sản phẩm theo danh mục và phân trang
+        $result = $product->getByCateId(isset($page['page']) ? $page['page'] : 1, 8, $CateId);
 
         $category    = $this->model('categoryModel');
         $cate        = ($category->getById($CateId))->fetch_assoc();
@@ -101,6 +103,7 @@ class product extends ControllerBase
     }
 
 
+    // Phương thức đánh giá sản phẩm
     public function rating($id)
     {
         $product       = $this->model("productModel");
