@@ -112,6 +112,7 @@ class product extends ControllerBase
         $check = $productRating->getByProductIdUserId($id, $_SESSION['user_id']);
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Thêm đánh giá mới
             $result = $productRating->add($_POST['productId'], $_POST['content'], $_POST['star'], $_SESSION['user_id']);
             if ($result) {
                 $this->redirect("product", "single", ["Id" => $_POST['productId']]);
