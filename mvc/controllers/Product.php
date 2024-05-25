@@ -9,6 +9,7 @@ class product extends ControllerBase
 
     public function search()
     {
+        // tạo đối tượng product từ productModel  
         $product = $this->model("productModel");
         $result  = $product->search($_GET["keyword"]);
         // $result = $product->search(urlencode($_GET["keyword"]));
