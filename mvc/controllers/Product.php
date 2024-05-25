@@ -35,30 +35,39 @@ class product extends ControllerBase
     }
 
 
+    // Phương thức lấy thông tin chi tiết của sản phẩm
     public function single($Id)
     {
+        // Tạo các đối tượng model cần thiết
         $question = $this->model("questionModel");
         $product  = $this->model("productModel");
         $blog     = $this->model("blogModel");
         $result   = $product->getById($Id);
         // Fetch
-        $p    = $result->fetch_assoc();
+        // Lấy thông tin sản phẩm theo ID
+        $p = $result->fetch_assoc();
+        // Lấy danh sách sản phẩm gợi ý
         $list = $product->getProductSuggest($p['name'], $p['id']);
 
+        // Khởi tạo các biến
         $index = 0;
         $s     = false;
 
         // Rating
+        // Lấy đánh giá sản phẩm
         $productRating        = $this->model("productRatingModel");
         $productRatingResult  = $productRating->getStarByProductId($Id);
         $productRatingContent = $productRating->getByProductId($Id);
 
         // Question
+        // Lấy câu hỏi liên quan đến sản phẩm
         $questionContent = $question->getByProductId($Id);
 
         //Blog
+        // Lấy danh sách blog liên quan đến sản phẩm 
         $blogList = $blog->search($p['name'])->fetch_all(MYSQLI_ASSOC);
 
+        // Hiển thị trang chi tiết sản phẩm
         $this->view("client/single", [
             "headTitle"            => $p['name'],
             "product"              => $p,
