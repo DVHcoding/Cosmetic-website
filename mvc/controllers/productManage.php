@@ -60,6 +60,7 @@ class productManage extends ControllerBase
         $result       = $category->getAllClient();
         $categoryList = $result->fetch_all(MYSQLI_ASSOC);
 
+        // Kiểm tra nếu request method là POST thì tiến hành thêm sản phẩm mới
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $product = $this->model("productModel");
             $result  = $product->insert($_POST);
