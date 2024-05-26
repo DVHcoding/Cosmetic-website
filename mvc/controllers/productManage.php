@@ -85,6 +85,7 @@ class productManage extends ControllerBase
                 ]);
             }
         } else {
+            // Nếu không phải request method là POST thì hiển thị form thêm mới sản phẩm
             $this->view("admin/addNewProduct", [
                 "headTitle"    => "Thêm mới sản phẩm",
                 "cssClass"     => "none",
