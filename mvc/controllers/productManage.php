@@ -55,7 +55,8 @@ class productManage extends ControllerBase
         }
 
         // Tạo đối tượng category từ class categoryModel
-        $category     = $this->model("categoryModel");
+        $category = $this->model("categoryModel");
+        // Lấy tất cả danh mục để hiển thị trong form thêm mới sản phẩm
         $result       = $category->getAllClient();
         $categoryList = $result->fetch_all(MYSQLI_ASSOC);
 
