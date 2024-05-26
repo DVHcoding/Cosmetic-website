@@ -76,6 +76,7 @@ class productManage extends ControllerBase
                     "categoryList" => $categoryList
                 ]);
             } else {
+                // Nếu thêm mới thất bại thì hiển thị thông báo lỗi
                 $this->view("admin/addNewProduct", [
                     "headTitle" => "Quản lý sản phẩm",
                     "cssClass"  => "error",
