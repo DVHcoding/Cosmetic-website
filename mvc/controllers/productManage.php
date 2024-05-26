@@ -64,7 +64,9 @@ class productManage extends ControllerBase
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Tạo đối tượng product từ class productModel
             $product = $this->model("productModel");
-            $result  = $product->insert($_POST);
+            // Gọi hàm insert để thêm sản phẩm mới với dữ liệu từ form
+            $result = $product->insert($_POST);
+            // Nếu thêm mới thành công thì hiển thị thông báo thành công 
             if ($result) {
                 $this->view("admin/addNewProduct", [
                     "headTitle"    => "Quản lý sản phẩm",
