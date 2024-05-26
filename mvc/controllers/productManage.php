@@ -49,11 +49,12 @@ class productManage extends ControllerBase
 
     public function add()
     {
+        // Kiểm tra nếu không phải tài khoản admin thì chuyển hướng về trang người dùng
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
 
-
+        // Tạo đối tượng category từ class categoryModel
         $category     = $this->model("categoryModel");
         $result       = $category->getAllClient();
         $categoryList = $result->fetch_all(MYSQLI_ASSOC);
