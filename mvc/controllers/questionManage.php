@@ -47,6 +47,7 @@ class questionManage extends ControllerBase
                     "rating"    => $result
                 ]);
             } else {
+                // Tải view với thông báo lỗi
                 $this->view("admin/replyQuestion", [
                     "headTitle" => "Phản hồi",
                     "cssClass"  => "error",
