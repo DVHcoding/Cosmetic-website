@@ -26,6 +26,7 @@ class questionManage extends ControllerBase
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
+        // Chuyển hướng đến trang chủ nếu người dùng không phải là Quản trị viên
         $question = $this->model("questionModel");
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
