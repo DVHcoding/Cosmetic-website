@@ -36,6 +36,8 @@ class questionManage extends ControllerBase
             $resultreply = $question->reply($_POST['reply'], $_POST['id']);
             // Lấy câu hỏi được cập nhật theo ID
             $result = $question->getById($_POST['id']);
+
+            // Kiểm tra nếu phản hồi được lưu thành công
             if ($resultreply) {
                 $this->view("admin/replyQuestion", [
                     "headTitle" => "Phản hồi",
