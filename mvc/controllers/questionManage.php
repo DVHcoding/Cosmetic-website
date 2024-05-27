@@ -32,7 +32,7 @@ class questionManage extends ControllerBase
 
         // Kiểm tra nếu phương thức yêu cầu là POST (gửi biểu mẫu)
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+            // Cố gắng lưu phản hồi vào cơ sở dữ liệu
             $resultreply = $question->reply($_POST['reply'], $_POST['id']);
             $result      = $question->getById($_POST['id']);
             if ($resultreply) {
