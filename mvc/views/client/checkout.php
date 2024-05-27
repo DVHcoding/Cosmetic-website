@@ -77,21 +77,29 @@
         <th>Đơn giá</th>
         <th>Thao tác</th>
       </tr>
+
       <?php foreach ($data['cart'] as $key => $value) {
         $total += $value['productPrice'] * $value['quantity'];
         ?>
         <tr>
           <td><?= ++$count ?></td>
+          <!-- Tên sản phẩm -->
           <td><?= $value['productName'] ?></td>
+          <!-- Hình ảnh sản phẩm -->
           <td><img class="img-table" src="<?= URL_ROOT . '/public/images/' . $value['image'] ?>" alt=""></td>
-          <td><input type="number" min="1" class="qty" name="" id="<?= $value['productId'] ?>"
-              value="<?= $value['quantity'] ?>" onchange="update(this)"></td>
+          <!-- Số lượng -->
+          <td>
+            <input type="number" min="1" class="qty" name="" id="<?= $value['productId'] ?>"
+              value="<?= $value['quantity'] ?>" onchange="update(this)">
+          </td>
+          <!--Đơn giá  -->
           <td><?= number_format($value['productPrice'], 0, '', ',') ?>₫</td>
           <td><a href="<?= URL_ROOT . '/cart/removeItemcart/' . $value['productId'] ?>" class="rm-item-cart"><i
                 class="fa fa-trash"></i></a></td>
         </tr>
-      <?php }
-      ?>
+      <?php } ?>
+
+
       <tr>
         <td></td>
         <td></td>
@@ -114,6 +122,8 @@
       <h3 style="text-align: center;">Giỏ hàng hiện đang trống...</h3>
     <?php } ?>
   </table>
+
+
   <?php
   if (!isset($_SESSION['voucher']) && isset($_SESSION['user_id']) && count($data['cart']) > 0) { ?>
     <div class="login">
@@ -186,10 +196,12 @@
     ?>
   </div>
   <?php require APP_ROOT . '/views/client/inc/footer.php'; ?>
+
+
   <script>
     function update(e) {
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "http://localhost:" + location.port + "/luanvan/cart/updateItemcart/" + e.id + "/" + e.value, true);
+      xhr.open("GET", "http://localhost:" + location.port + "/WebMyPham/cart/updateItemcart/" + e.id + "/" + e.value, true);
       xhr.onload = function () {
         if (xhr.readyState === 4) {
           if (xhr.readyState === 4) {
