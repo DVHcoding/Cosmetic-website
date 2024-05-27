@@ -24,9 +24,10 @@ class questionManage extends ControllerBase
     {
         // Kiểm tra nếu người dùng đã đăng nhập và không phải là Quản trị viên
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
+            // Chuyển hướng đến trang chủ nếu người dùng không phải là Quản trị viên
             $this->redirect("home");
         }
-        // Chuyển hướng đến trang chủ nếu người dùng không phải là Quản trị viên
+        // Tải model câu hỏi
         $question = $this->model("questionModel");
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
