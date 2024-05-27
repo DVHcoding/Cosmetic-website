@@ -56,6 +56,7 @@ class questionManage extends ControllerBase
                 ]);
             }
         } else {
+            // Nếu phương thức yêu cầu không phải là POST, tải chi tiết câu hỏi
             $result = $question->getById($id);
             $this->view("admin/replyQuestion", [
                 "headTitle" => "Phản hồi",
