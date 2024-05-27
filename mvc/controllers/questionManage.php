@@ -30,6 +30,7 @@ class questionManage extends ControllerBase
         // Tải model câu hỏi
         $question = $this->model("questionModel");
 
+        // Kiểm tra nếu phương thức yêu cầu là POST (gửi biểu mẫu)
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $resultreply = $question->reply($_POST['reply'], $_POST['id']);
