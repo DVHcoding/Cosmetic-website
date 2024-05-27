@@ -88,7 +88,7 @@ class userModel
 
         $sql = "INSERT INTO users
     	(id, fullName, email, dob, address, `password`, roleId, `status`, captcha, isConfirmed, phone, provinceId, districtId, wardId)
-	    VALUES (NULL, '$fullName', '$email', $dob, '$address', '$md5Password', 2, 1, '$captcha', 1, '$phone', '$provinceId', '$districtId', '$wardId')";
+	    VALUES (NULL, '$fullName', '$email', '$dob', '$address', '$md5Password', 2, 1, '$captcha', 1, '$phone', '$provinceId', '$districtId', '$wardId')";
 
         $result = mysqli_query($db->con, $sql);
         if ($result) {
