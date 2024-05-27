@@ -12,16 +12,17 @@ class questionManage extends ControllerBase
         $question = $this->model("questionModel");
         // Gọi hàm addAllAdmin
         $questionList = ($question->getAllAdmin((isset($_GET['page']) ? $_GET['page'] : 1)))->fetch_all(MYSQLI_ASSOC);
-        $countPaging = $question->getCountPaging(8);
+        $countPaging  = $question->getCountPaging(8);
         $this->view("admin/question", [
-            "headTitle" => "Phản hồi đánh giá",
+            "headTitle"    => "Phản hồi đánh giá",
             "questionList" => $questionList,
-            "countPaging" => $countPaging
+            "countPaging"  => $countPaging
         ]);
     }
 
     public function reply($id)
     {
+        // Kiểm tra nếu người dùng đã đăng nhập và không phải là Quản trị viên
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
@@ -30,28 +31,28 @@ class questionManage extends ControllerBase
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $resultreply = $question->reply($_POST['reply'], $_POST['id']);
-            $result = $question->getById($_POST['id']);
+            $result      = $question->getById($_POST['id']);
             if ($resultreply) {
                 $this->view("admin/replyQuestion", [
                     "headTitle" => "Phản hồi",
-                    "cssClass" => "success",
-                    "message" => "Thành công!",
-                    "rating" => $result
+                    "cssClass"  => "success",
+                    "message"   => "Thành công!",
+                    "rating"    => $result
                 ]);
             } else {
                 $this->view("admin/replyQuestion", [
                     "headTitle" => "Phản hồi",
-                    "cssClass" => "error",
-                    "message" => "Lỗi, vui lòng thử lại sau!",
-                    "rating" => $result
+                    "cssClass"  => "error",
+                    "message"   => "Lỗi, vui lòng thử lại sau!",
+                    "rating"    => $result
                 ]);
             }
         } else {
             $result = $question->getById($id);
             $this->view("admin/replyQuestion", [
                 "headTitle" => "Phản hồi",
-                "cssClass" => "none",
-                "rating" => $result
+                "cssClass"  => "none",
+                "rating"    => $result
             ]);
         }
     }
@@ -59,7 +60,7 @@ class questionManage extends ControllerBase
     public function delete($id)
     {
         $question = $this->model("questionModel");
-        $result = $question->delete($id);
+        $result   = $question->delete($id);
         if ($result) {
             $this->redirect("questionManage");
         }
