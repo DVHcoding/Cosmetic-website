@@ -39,6 +39,7 @@ class questionManage extends ControllerBase
 
             // Kiểm tra nếu phản hồi được lưu thành công
             if ($resultreply) {
+                // Tải view với thông báo thành công và câu hỏi đã cập nhật
                 $this->view("admin/replyQuestion", [
                     "headTitle" => "Phản hồi",
                     "cssClass"  => "success",
