@@ -104,7 +104,8 @@ class productManage extends ControllerBase
         // Tạo đối tượng từ model 'categoryModel' để làm việc với danh mục
         $category = $this->model("categoryModel");
         // Lấy tất cả các danh mục khách hàng
-        $result       = $category->getAllClient();
+        $result = $category->getAllClient();
+        // Lấy kết quả dưới dạng mảng liên kết
         $categoryList = $result->fetch_all(MYSQLI_ASSOC);
 
         $product = $this->model("productModel");
