@@ -111,6 +111,7 @@ class productManage extends ControllerBase
         // Tạo đối tượng từ model 'productModel' để làm việc với sản phẩm
         $product = $this->model("productModel");
 
+        // Kiểm tra nếu phương thức yêu cầu là POST (tức là khi form đã được submit)
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $r   = $product->update($_POST);
             $new = $product->getByIdAdmin($_POST['id']);
