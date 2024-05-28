@@ -96,6 +96,7 @@ class productManage extends ControllerBase
 
     public function edit($id = "")
     {
+        // Kiểm tra nếu người dùng đã đăng nhập và không phải là Admin thì chuyển hướng đến trang chủ
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
