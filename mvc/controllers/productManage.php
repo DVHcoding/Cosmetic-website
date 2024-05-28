@@ -108,6 +108,7 @@ class productManage extends ControllerBase
         // Lấy kết quả dưới dạng mảng liên kết
         $categoryList = $result->fetch_all(MYSQLI_ASSOC);
 
+        // Tạo đối tượng từ model 'productModel' để làm việc với sản phẩm
         $product = $this->model("productModel");
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
