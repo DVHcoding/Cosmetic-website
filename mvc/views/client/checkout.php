@@ -62,7 +62,11 @@
   <div class="banner">
 
   </div>
+
   <div class="title">Giỏ hàng của tôi</div>
+
+  <p class="alert_cart_quantity"></p>
+
   <table id="table">
 
     <?php
@@ -212,9 +216,9 @@
               }, 500);
 
             } else if (status === 501) {
-              alert('Số lượng sản phẩm không đủ để thêm vào giỏ hàng!');
-              // e.value = parseInt(e.value) - 1;
-              window.location.reload();
+              const alertCartQuantity = document.querySelector(".alert_cart_quantity");
+              alertCartQuantity.textContent = "Số lượng sản phẩm không đủ để thêm vào giỏ hàng!";
+              e.value = parseInt(e.value) - 1;
             } else {
               alert('Cập nhật giỏ hàng thất bại!');
               window.location.reload();

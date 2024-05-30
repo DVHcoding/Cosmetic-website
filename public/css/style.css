@@ -792,6 +792,12 @@ textarea {
   background-color: rgb(0, 194, 119);
 }
 
+.alert_cart_quantity {
+  font-size: 15px;
+  text-align: center;
+  color: red;
+}
+
 .right {
   text-align: center;
   margin-bottom: 20px;
