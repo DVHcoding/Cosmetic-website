@@ -42,6 +42,7 @@ class statisticManage extends ControllerBase
                 if ($_POST['type'] == "revenue") {
                     // Xử lý code cho loại thống kê doanh thu...
                 }
+                // Lấy dữ liệu doanh thu từ model
                 $result = $statistic->getRevenue();
                 if ($result) {
                     $revenueList = $result->fetch_all(MYSQLI_ASSOC);
