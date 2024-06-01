@@ -28,6 +28,7 @@ class statisticManage extends ControllerBase
 
     public function statistic()
     {
+        // Kiểm tra xem người dùng có quyền Admin không
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
