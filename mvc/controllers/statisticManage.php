@@ -45,6 +45,7 @@ class statisticManage extends ControllerBase
                 // Lấy dữ liệu doanh thu từ model
                 $result = $statistic->getRevenue();
                 if ($result) {
+                    // Chuyển dữ liệu kết quả thành mảng
                     $revenueList = $result->fetch_all(MYSQLI_ASSOC);
                 }
             }
