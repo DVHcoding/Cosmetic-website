@@ -38,8 +38,9 @@ class statisticManage extends ControllerBase
             // Khởi tạo model
             $statistic = $this->model("statisticModel");
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Kiểm tra loại thống kê có phải là "revenue" (doanh thu) không
                 if ($_POST['type'] == "revenue") {
-                    # code...
+                    // Xử lý code cho loại thống kê doanh thu...
                 }
                 $result = $statistic->getRevenue();
                 if ($result) {
