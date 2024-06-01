@@ -33,6 +33,7 @@ class statisticManage extends ControllerBase
             $this->redirect("home");
         }
 
+        // Kiểm tra xem yêu cầu có phải phương thức POST không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Khởi tạo model
             $statistic = $this->model("statisticModel");
