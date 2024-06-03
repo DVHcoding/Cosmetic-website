@@ -66,6 +66,8 @@ class statisticManage extends ControllerBase
             // Lấy doanh thu trong khoảng thời gian từ 'from' đến 'to'
             $result      = $statistic->getRevenue($_GET['from'], $_GET['to']);
             $revenueList = [];
+
+            // Nếu có kết quả, chuyển đổi kết quả thành mảng liên kết
             if ($result) {
                 $revenueList = $result->fetch_all(MYSQLI_ASSOC);
             }
