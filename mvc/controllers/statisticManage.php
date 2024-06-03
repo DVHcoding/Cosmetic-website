@@ -61,6 +61,7 @@ class statisticManage extends ControllerBase
     {
         // Kiểm tra xem các tham số 'from' và 'to' có được thiết lập trong URL hay không
         if (isset($_GET['from']) && isset($_GET['to'])) {
+            // Lấy mô hình 'statisticModel'
             $statistic   = $this->model("statisticModel");
             $result      = $statistic->getRevenue($_GET['from'], $_GET['to']);
             $revenueList = [];
