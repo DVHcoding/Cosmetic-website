@@ -89,6 +89,7 @@ class statisticManage extends ControllerBase
 
     public function stock()
     {
+        // Lấy mô hình 'statisticModel'
         $statistic = $this->model("statisticModel");
         $result    = $statistic->getStock();
         if ($result) {
