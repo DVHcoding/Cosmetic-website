@@ -80,6 +80,8 @@ class statisticManage extends ControllerBase
                 "revenueList" => $revenueList
             ]);
         }
+
+        // Gọi view 'admin/revenueStatistic' với chỉ tiêu đề nếu không có tham số 'from' và 'to'
         $this->view("admin/revenueStatistic", [
             "headTitle" => "Thống kê"
         ]);
