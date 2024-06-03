@@ -98,6 +98,7 @@ class statisticManage extends ControllerBase
             $stockList = $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        // Gọi view 'admin/stockStatistic' và truyền các dữ liệu cần thiết
         $this->view("admin/stockStatistic", [
             "headTitle" => "Thống kê",
             "stockList" => $stockList
