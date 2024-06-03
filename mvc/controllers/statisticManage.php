@@ -72,6 +72,7 @@ class statisticManage extends ControllerBase
                 $revenueList = $result->fetch_all(MYSQLI_ASSOC);
             }
 
+            // Gọi view 'admin/revenueStatistic' và truyền các dữ liệu cần thiết
             $this->view("admin/revenueStatistic", [
                 "headTitle"   => "Thống kê",
                 "from"        => $_GET['from'],
