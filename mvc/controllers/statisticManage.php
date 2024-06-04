@@ -134,7 +134,7 @@ class statisticManage extends ControllerBase
         // Kiểm tra xem dữ liệu có được lấy thành công hay không
         if ($result) {
             $revenueList = $result->fetch_all(MYSQLI_ASSOC);
-
+            // Khởi tạo biến lưu trữ tiêu đề cột
             $columnHeader = '';
             $columnHeader = "STT" . "\t" . "Doanh thu" . "\t" . "Ngày" . "\t";
             $setData      = '';
