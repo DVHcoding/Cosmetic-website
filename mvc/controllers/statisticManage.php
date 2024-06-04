@@ -126,6 +126,7 @@ class statisticManage extends ControllerBase
 
     public function revenueToExcel($from, $to)
     {
+        // Khởi tạo đối tượng model thống kê
         $statistic = $this->model("statisticModel");
         $result    = $statistic->getRevenue($from, $to);
         if ($result) {
