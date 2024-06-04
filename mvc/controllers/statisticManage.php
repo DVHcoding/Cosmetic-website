@@ -113,6 +113,7 @@ class statisticManage extends ControllerBase
         $result = $statistic->getProducts();
         // Kiểm tra xem dữ liệu có được lấy thành công hay không 
         if ($result) {
+            // Trích xuất dữ liệu thống kê sản phẩm thành mảng kết hợp
             $productList = $result->fetch_all(MYSQLI_ASSOC);
         }
 
