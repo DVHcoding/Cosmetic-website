@@ -109,7 +109,8 @@ class statisticManage extends ControllerBase
     {
         // Khởi tạo đối tượng model thống kê
         $statistic = $this->model("statisticModel");
-        $result    = $statistic->getProducts();
+        // Lấy dữ liệu thống kê sản phẩm
+        $result = $statistic->getProducts();
         if ($result) {
             $productList = $result->fetch_all(MYSQLI_ASSOC);
         }
