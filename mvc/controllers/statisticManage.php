@@ -117,6 +117,7 @@ class statisticManage extends ControllerBase
             $productList = $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        // Hiển thị trang thống kê sản phẩm
         $this->view("admin/productStatistic", [
             "headTitle"   => "Thống kê",
             "productList" => $productList
