@@ -128,7 +128,8 @@ class statisticManage extends ControllerBase
     {
         // Khởi tạo đối tượng model thống kê
         $statistic = $this->model("statisticModel");
-        $result    = $statistic->getRevenue($from, $to);
+        // Lấy dữ liệu doanh thu trong khoảng thời gian từ $from đến $to
+        $result = $statistic->getRevenue($from, $to);
         if ($result) {
             $revenueList = $result->fetch_all(MYSQLI_ASSOC);
 
