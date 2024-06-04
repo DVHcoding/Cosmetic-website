@@ -107,6 +107,7 @@ class statisticManage extends ControllerBase
 
     public function products()
     {
+        // Khởi tạo đối tượng model thống kê
         $statistic = $this->model("statisticModel");
         $result    = $statistic->getProducts();
         if ($result) {
