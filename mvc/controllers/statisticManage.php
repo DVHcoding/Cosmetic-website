@@ -159,6 +159,7 @@ class statisticManage extends ControllerBase
 
     public function stockToExcel()
     {
+        // Khởi tạo đối tượng của lớp statisticModel
         $statistic = $this->model("statisticModel");
         $result    = $statistic->getStock();
         if ($result) {
