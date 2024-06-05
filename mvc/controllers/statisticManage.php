@@ -172,8 +172,9 @@ class statisticManage extends ControllerBase
             $columnHeader = '';
             // Định nghĩa các tiêu đề cột
             $columnHeader = "STT" . "\t" . "Tên sản phẩm" . "\t" . "Tồn" . "\t";
-            $setData      = '';
-            $count        = 1;
+            // Khởi tạo chuỗi dữ liệu
+            $setData = '';
+            $count   = 1;
             foreach ($stockList as $key => $value) {
                 $rowData = $count . "\t";
                 foreach ($value as $v) {
