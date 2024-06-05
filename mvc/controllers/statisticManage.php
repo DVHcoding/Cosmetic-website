@@ -183,6 +183,7 @@ class statisticManage extends ControllerBase
 
                 // Lặp qua từng giá trị cột trong hàng
                 foreach ($value as $v) {
+                    // Bao mỗi giá trị trong dấu ngoặc kép và nối vào dữ liệu hàng
                     $v       = '"' . $v . '"' . "\t";
                     $rowData .= $v;
                 }
