@@ -187,6 +187,7 @@ class statisticManage extends ControllerBase
                     $v       = '"' . $v . '"' . "\t";
                     $rowData .= $v;
                 }
+                // Nối dữ liệu hàng đã cắt tỉa với ký tự dòng mới vào setData
                 $setData .= trim($rowData) . "\n";
             }
             header("Content-type: application/octet-stream");
