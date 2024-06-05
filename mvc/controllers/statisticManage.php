@@ -190,6 +190,7 @@ class statisticManage extends ControllerBase
                 // Nối dữ liệu hàng đã cắt tỉa với ký tự dòng mới vào setData
                 $setData .= trim($rowData) . "\n";
             }
+            // Thiết lập tiêu đề HTTP cho việc tải xuống tập tin Excel
             header("Content-type: application/octet-stream");
             header("Content-Disposition: attachment; filename=ton-kho.xls");
             header("Pragma: no-cache");
