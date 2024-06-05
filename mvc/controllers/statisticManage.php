@@ -166,6 +166,7 @@ class statisticManage extends ControllerBase
 
         // Nếu dữ liệu được lấy thành công
         if ($result) {
+            // Lấy tất cả các hàng dưới dạng mảng kết hợp
             $stockList = $result->fetch_all(MYSQLI_ASSOC);
 
             $columnHeader = '';
