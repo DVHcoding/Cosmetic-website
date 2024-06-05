@@ -174,7 +174,8 @@ class statisticManage extends ControllerBase
             $columnHeader = "STT" . "\t" . "Tên sản phẩm" . "\t" . "Tồn" . "\t";
             // Khởi tạo chuỗi dữ liệu
             $setData = '';
-            $count   = 1;
+            // Khởi tạo đếm số hàng
+            $count = 1;
             foreach ($stockList as $key => $value) {
                 $rowData = $count . "\t";
                 foreach ($value as $v) {
