@@ -170,6 +170,7 @@ class statisticManage extends ControllerBase
             $stockList = $result->fetch_all(MYSQLI_ASSOC);
 
             $columnHeader = '';
+            // Định nghĩa các tiêu đề cột
             $columnHeader = "STT" . "\t" . "Tên sản phẩm" . "\t" . "Tồn" . "\t";
             $setData      = '';
             $count        = 1;
