@@ -180,6 +180,8 @@ class statisticManage extends ControllerBase
             foreach ($stockList as $key => $value) {
                 // Bắt đầu xây dựng dữ liệu hàng với số hàng
                 $rowData = $count . "\t";
+
+                // Lặp qua từng giá trị cột trong hàng
                 foreach ($value as $v) {
                     $v       = '"' . $v . '"' . "\t";
                     $rowData .= $v;
