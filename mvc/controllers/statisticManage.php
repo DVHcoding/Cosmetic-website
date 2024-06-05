@@ -161,7 +161,8 @@ class statisticManage extends ControllerBase
     {
         // Khởi tạo đối tượng của lớp statisticModel
         $statistic = $this->model("statisticModel");
-        $result    = $statistic->getStock();
+        // Lấy dữ liệu tồn kho từ cơ sở dữ liệu
+        $result = $statistic->getStock();
         if ($result) {
             $stockList = $result->fetch_all(MYSQLI_ASSOC);
 
