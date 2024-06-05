@@ -178,6 +178,7 @@ class statisticManage extends ControllerBase
             $count = 1;
             // Lặp qua từng hàng dữ liệu tồn kho
             foreach ($stockList as $key => $value) {
+                // Bắt đầu xây dựng dữ liệu hàng với số hàng
                 $rowData = $count . "\t";
                 foreach ($value as $v) {
                     $v       = '"' . $v . '"' . "\t";
