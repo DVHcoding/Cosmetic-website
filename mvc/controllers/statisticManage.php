@@ -196,6 +196,7 @@ class statisticManage extends ControllerBase
             header("Pragma: no-cache");
             header("Expires: 0");
 
+            // Xuất tiêu đề cột và dữ liệu ra trình duyệt
             echo ucwords($columnHeader) . "\n" . $setData . "\n";
         }
     }
