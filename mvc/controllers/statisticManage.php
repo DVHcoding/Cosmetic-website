@@ -205,7 +205,8 @@ class statisticManage extends ControllerBase
     {
         // Tạo một đối tượng của model "statisticModel" 
         $statistic = $this->model("statisticModel");
-        $result    = $statistic->getProducts();
+        // Gọi phương thức getProducts() từ statisticModel để lấy danh sách sản phẩm
+        $result = $statistic->getProducts();
         if ($result) {
             $productList = $result->fetch_all(MYSQLI_ASSOC);
 
