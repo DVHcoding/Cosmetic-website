@@ -203,6 +203,7 @@ class statisticManage extends ControllerBase
 
     public function productToExcel()
     {
+        // Tạo một đối tượng của model "statisticModel" 
         $statistic = $this->model("statisticModel");
         $result    = $statistic->getProducts();
         if ($result) {
