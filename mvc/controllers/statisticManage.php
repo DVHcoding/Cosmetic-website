@@ -212,6 +212,7 @@ class statisticManage extends ControllerBase
             // Chuyển đổi kết quả thành một mảng liên kết
             $productList = $result->fetch_all(MYSQLI_ASSOC);
 
+            // Khởi tạo biến chứa tiêu đề các cột cho file Excel
             $columnHeader = '';
             $columnHeader = "STT" . "\t" . "Tên sản phẩm" . "\t" . "SL đã bán" . "\t";
             $setData      = '';
