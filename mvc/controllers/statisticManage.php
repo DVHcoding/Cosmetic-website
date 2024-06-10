@@ -215,8 +215,9 @@ class statisticManage extends ControllerBase
             // Khởi tạo biến chứa tiêu đề các cột cho file Excel
             $columnHeader = '';
             $columnHeader = "STT" . "\t" . "Tên sản phẩm" . "\t" . "SL đã bán" . "\t";
-            $setData      = '';
-            $count        = 1;
+            // Khởi tạo biến chứa dữ liệu các dòng
+            $setData = '';
+            $count   = 1;
             foreach ($productList as $key => $value) {
                 $rowData = $count . "\t";
                 foreach ($value as $v) {
