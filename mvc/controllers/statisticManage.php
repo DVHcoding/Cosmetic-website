@@ -209,6 +209,7 @@ class statisticManage extends ControllerBase
         $result = $statistic->getProducts();
         // Kiểm tra nếu có kết quả trả về từ getProducts()  
         if ($result) {
+            // Chuyển đổi kết quả thành một mảng liên kết
             $productList = $result->fetch_all(MYSQLI_ASSOC);
 
             $columnHeader = '';
