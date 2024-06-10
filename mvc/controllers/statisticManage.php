@@ -217,7 +217,7 @@ class statisticManage extends ControllerBase
             $columnHeader = "STT" . "\t" . "Tên sản phẩm" . "\t" . "SL đã bán" . "\t";
             // Khởi tạo biến chứa dữ liệu các dòng
             $setData = '';
-            $count   = 1;
+            $count   = 1;  // Biến đếm để đánh số thứ tự cho từng dòng
             foreach ($productList as $key => $value) {
                 $rowData = $count . "\t";
                 foreach ($value as $v) {
