@@ -166,7 +166,8 @@ class user extends ControllerBase
     public function edit()
     {
         // Khởi tạo model
-        $user   = $this->model('userModel');
+        $user = $this->model('userModel');
+        // Lấy thông tin người dùng dựa trên ID người dùng trong session
         $result = $user->getById($_SESSION['user_id']);
         $u      = $result->fetch_assoc();
 
