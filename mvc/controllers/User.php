@@ -177,6 +177,7 @@ class user extends ControllerBase
             // Kiểm tra xem số điện thoại mới đã tồn tại trong cơ sở dữ liệu hay chưa
             $checkPhone = $user->checkPhoneUpdate($_POST['phone']);
 
+            // Nếu số điện thoại đã tồn tại
             if (!$checkPhone) {
                 $this->view("client/edit", [
                     "headTitle"    => "Chỉnh sửa thông tin tài khoản",
