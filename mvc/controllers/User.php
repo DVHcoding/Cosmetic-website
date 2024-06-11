@@ -179,6 +179,7 @@ class user extends ControllerBase
 
             // Nếu số điện thoại đã tồn tại
             if (!$checkPhone) {
+                // Hiển thị lại trang chỉnh sửa với thông báo lỗi
                 $this->view("client/edit", [
                     "headTitle"    => "Chỉnh sửa thông tin tài khoản",
                     "messagePhone" => "Số điện thoại đã tồn tại",
