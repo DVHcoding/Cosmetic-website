@@ -186,6 +186,7 @@ class user extends ControllerBase
                     "user"         => $u
                 ]);
             } else {
+                // Cập nhật thông tin người dùng trong cơ sở dữ liệu
                 $r = $user->update($_POST);
 
                 if ($r) {
