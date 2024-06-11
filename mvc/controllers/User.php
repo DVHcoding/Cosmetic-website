@@ -169,7 +169,8 @@ class user extends ControllerBase
         $user = $this->model('userModel');
         // Lấy thông tin người dùng dựa trên ID người dùng trong session
         $result = $user->getById($_SESSION['user_id']);
-        $u      = $result->fetch_assoc();
+        // Chuyển kết quả truy vấn thành mảng kết hợp
+        $u = $result->fetch_assoc();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $checkPhone = $user->checkPhoneUpdate($_POST['phone']);
