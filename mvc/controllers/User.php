@@ -174,6 +174,7 @@ class user extends ControllerBase
 
         // Kiểm tra xem yêu cầu HTTP là POST hay không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Kiểm tra xem số điện thoại mới đã tồn tại trong cơ sở dữ liệu hay chưa
             $checkPhone = $user->checkPhoneUpdate($_POST['phone']);
 
             if (!$checkPhone) {
