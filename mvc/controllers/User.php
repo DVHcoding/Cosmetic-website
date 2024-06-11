@@ -172,6 +172,7 @@ class user extends ControllerBase
         // Chuyển kết quả truy vấn thành mảng kết hợp
         $u = $result->fetch_assoc();
 
+        // Kiểm tra xem yêu cầu HTTP là POST hay không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $checkPhone = $user->checkPhoneUpdate($_POST['phone']);
 
