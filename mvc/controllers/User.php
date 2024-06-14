@@ -213,7 +213,7 @@ class user extends ControllerBase
     {
         // Kiểm tra nếu phương thức request là POS
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Khởi tạo model
+            // Khởi tạo model user để làm việc với database
             $user   = $this->model('userModel');
             $result = $user->checkCurrentPassword($_SESSION['user_id'], $_POST['password']);
             if ($result) {
