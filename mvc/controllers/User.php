@@ -239,6 +239,7 @@ class user extends ControllerBase
                 ]);
             }
         } else {
+            // Nếu không phải là phương thức POST, hiển thị form đổi mật khẩu
             $this->view('client/resetPassword', [
                 "headTitle" => "Đổi mật khẩu"
             ]);
