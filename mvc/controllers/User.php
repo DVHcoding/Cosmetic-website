@@ -219,6 +219,7 @@ class user extends ControllerBase
             $result = $user->checkCurrentPassword($_SESSION['user_id'], $_POST['password']);
             if ($result) {
                 // Nếu mật khẩu hiện tại đúng
+                // Cập nhật mật khẩu mới cho người dùng
                 $r = $user->updatePassword($_SESSION['user_id'], $_POST['newPassword']);
                 if ($r) {
                     $this->redirect("user", "info", [
