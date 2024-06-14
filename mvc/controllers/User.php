@@ -211,6 +211,7 @@ class user extends ControllerBase
 
     public function resetPassword()
     {
+        // Kiểm tra nếu phương thức request là POS
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Khởi tạo model
             $user   = $this->model('userModel');
