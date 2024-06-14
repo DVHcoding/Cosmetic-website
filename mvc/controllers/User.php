@@ -222,6 +222,7 @@ class user extends ControllerBase
                 // Cập nhật mật khẩu mới cho người dùng
                 $r = $user->updatePassword($_SESSION['user_id'], $_POST['newPassword']);
                 if ($r) {
+                    // Nếu cập nhật mật khẩu thành công, chuyển hướng đến trang thông tin người dùng
                     $this->redirect("user", "info", [
                         "message" => "Đổi mật khẩu thành công!"
                     ]);
