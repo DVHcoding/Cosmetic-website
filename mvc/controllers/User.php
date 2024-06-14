@@ -227,6 +227,7 @@ class user extends ControllerBase
                         "message" => "Đổi mật khẩu thành công!"
                     ]);
                 } else {
+                    // Nếu cập nhật mật khẩu không thành công, chuyển hướng đến trang thông tin người dùng với thông báo lỗi 
                     $this->redirect("user", "info", [
                         "message" => "Lỗi!"
                     ]);
