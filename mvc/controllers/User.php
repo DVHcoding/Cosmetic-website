@@ -214,7 +214,8 @@ class user extends ControllerBase
         // Kiểm tra nếu phương thức request là POS
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Khởi tạo model user để làm việc với database
-            $user   = $this->model('userModel');
+            $user = $this->model('userModel');
+            // Kiểm tra mật khẩu hiện tại của người dùng
             $result = $user->checkCurrentPassword($_SESSION['user_id'], $_POST['password']);
             if ($result) {
                 $r = $user->updatePassword($_SESSION['user_id'], $_POST['newPassword']);
