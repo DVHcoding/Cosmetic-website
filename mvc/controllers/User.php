@@ -248,6 +248,7 @@ class user extends ControllerBase
 
     public function delete()
     {
+        // Kiểm tra phương thức yêu cầu có phải là POST hay không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Khởi tạo model
             $user   = $this->model('userModel');
