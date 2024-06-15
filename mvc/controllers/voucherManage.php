@@ -15,6 +15,7 @@ class voucherManage extends ControllerBase
         // Lấy danh sách tất cả các voucher và chuyển đổi kết quả thành mảng liên kết
         $voucherList = ($voucher->getAll())->fetch_all(MYSQLI_ASSOC);
 
+        // Hiển thị trang quản lý voucher với dữ liệu danh sách voucher
         $this->view("admin/voucher", [
             "headTitle"   => "Quản lý voucher",
             "voucherList" => $voucherList
