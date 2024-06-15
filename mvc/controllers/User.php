@@ -258,6 +258,7 @@ class user extends ControllerBase
             if ($result) {
                 // Thực hiện xóa tài khoản người dùng
                 $r = $user->delete($_SESSION['user_id']);
+                // Nếu xóa thành công
                 if ($r) {
                     $this->redirect("user", "logout");
                 } else {
