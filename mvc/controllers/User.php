@@ -263,6 +263,7 @@ class user extends ControllerBase
                     // Chuyển hướng người dùng tới trang đăng xuất
                     $this->redirect("user", "logout");
                 } else {
+                    // Nếu xóa không thành công, hiển thị thông báo lỗi
                     $this->view('client/delete', [
                         "headTitle"       => "Xóa tài khoản",
                         "messagePassword" => "Lỗi!"
