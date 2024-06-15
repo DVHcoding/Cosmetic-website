@@ -6,6 +6,7 @@ class voucherManage extends ControllerBase
     {
         // Kiểm tra nếu người dùng đã đăng nhập và không phải là Admin
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
+            // Chuyển hướng người dùng tới trang chủ
             $this->redirect("home");
         }
 
