@@ -250,7 +250,7 @@ class user extends ControllerBase
     {
         // Kiểm tra phương thức yêu cầu có phải là POST hay không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Khởi tạo model
+            // Khởi tạo model user
             $user   = $this->model('userModel');
             $result = $user->checkCurrentPassword($_SESSION['user_id'], $_POST['password']);
             if ($result) {
