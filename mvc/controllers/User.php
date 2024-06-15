@@ -277,6 +277,7 @@ class user extends ControllerBase
                 ]);
             }
         } else {
+            // Nếu phương thức yêu cầu không phải là POST, hiển thị trang xóa tài khoảnv
             $this->view('client/delete', [
                 "headTitle" => "Đổi mật khẩu"
             ]);
