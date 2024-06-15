@@ -10,7 +10,7 @@ class voucherManage extends ControllerBase
             $this->redirect("home");
         }
 
-        // Khởi tạo model
+        // Khởi tạo model voucher
         $voucher     = $this->model("voucherModel");
         $voucherList = ($voucher->getAll())->fetch_all(MYSQLI_ASSOC);
 
