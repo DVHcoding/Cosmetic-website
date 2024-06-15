@@ -256,6 +256,7 @@ class user extends ControllerBase
             $result = $user->checkCurrentPassword($_SESSION['user_id'], $_POST['password']);
             // Nếu mật khẩu đúng
             if ($result) {
+                // Thực hiện xóa tài khoản người dùng
                 $r = $user->delete($_SESSION['user_id']);
                 if ($r) {
                     $this->redirect("user", "logout");
