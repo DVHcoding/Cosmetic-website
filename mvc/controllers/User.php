@@ -254,6 +254,7 @@ class user extends ControllerBase
             $user = $this->model('userModel');
             // Kiểm tra mật khẩu hiện tại của người dùng có đúng hay không
             $result = $user->checkCurrentPassword($_SESSION['user_id'], $_POST['password']);
+            // Nếu mật khẩu đúng
             if ($result) {
                 $r = $user->delete($_SESSION['user_id']);
                 if ($r) {
