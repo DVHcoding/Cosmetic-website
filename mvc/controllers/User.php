@@ -270,6 +270,7 @@ class user extends ControllerBase
                     ]);
                 }
             } else {
+                // Nếu mật khẩu không đúng, hiển thị thông báo mật khẩu sai
                 $this->view('client/delete', [
                     "headTitle"       => "Xóa tài khoản",
                     "messagePassword" => "Mật khẩu hiện tại không đúng!"
