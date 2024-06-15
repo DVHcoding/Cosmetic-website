@@ -260,6 +260,7 @@ class user extends ControllerBase
                 $r = $user->delete($_SESSION['user_id']);
                 // Nếu xóa thành công
                 if ($r) {
+                    // Chuyển hướng người dùng tới trang đăng xuất
                     $this->redirect("user", "logout");
                 } else {
                     $this->view('client/delete', [
