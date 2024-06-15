@@ -11,7 +11,8 @@ class voucherManage extends ControllerBase
         }
 
         // Khởi tạo model voucher
-        $voucher     = $this->model("voucherModel");
+        $voucher = $this->model("voucherModel");
+        // Lấy danh sách tất cả các voucher và chuyển đổi kết quả thành mảng liên kết
         $voucherList = ($voucher->getAll())->fetch_all(MYSQLI_ASSOC);
 
         $this->view("admin/voucher", [
