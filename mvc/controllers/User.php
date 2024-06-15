@@ -251,7 +251,8 @@ class user extends ControllerBase
         // Kiểm tra phương thức yêu cầu có phải là POST hay không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Khởi tạo model user
-            $user   = $this->model('userModel');
+            $user = $this->model('userModel');
+            // Kiểm tra mật khẩu hiện tại của người dùng có đúng hay không
             $result = $user->checkCurrentPassword($_SESSION['user_id'], $_POST['password']);
             if ($result) {
                 $r = $user->delete($_SESSION['user_id']);
