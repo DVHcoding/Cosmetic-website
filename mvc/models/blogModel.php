@@ -12,6 +12,7 @@ class blogModel
     {
         // Kiểm tra nếu chưa có thể hiện nào của lớp blogModel
         if (!self::$instance) {
+            // Tạo một thể hiện mới của lớp blogModel
             self::$instance = new blogModel();
         }
 
