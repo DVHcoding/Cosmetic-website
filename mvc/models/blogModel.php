@@ -7,6 +7,7 @@ class blogModel
     {
     }
 
+    // Phương thức tĩnh để lấy thể hiện duy nhất của lớp blogModel
     public static function getInstance()
     {
         if (!self::$instance) {
