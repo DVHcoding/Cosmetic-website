@@ -16,6 +16,7 @@ class blogModel
             self::$instance = new blogModel();
         }
 
+        // Trả về thể hiện duy nhất của lớp blogModel
         return self::$instance;
     }
 
