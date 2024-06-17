@@ -10,6 +10,7 @@ class blogModel
     // Phương thức tĩnh để lấy thể hiện duy nhất của lớp blogModel
     public static function getInstance()
     {
+        // Kiểm tra nếu chưa có thể hiện nào của lớp blogModel
         if (!self::$instance) {
             self::$instance = new blogModel();
         }
