@@ -71,7 +71,8 @@ class blogModel
     public function getCountPaging($row = 8)
     {
         // Lấy thể hiện của kết nối cơ sở dữ liệu
-        $db     = DB::getInstance();
+        $db = DB::getInstance();
+        // Câu lệnh SQL để lấy thông tin các bài viết phổ biến
         $sql    = "SELECT COUNT(*) FROM productrating";
         $result = mysqli_query($db->con, $sql);
         if ($result) {
