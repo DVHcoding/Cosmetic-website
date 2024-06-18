@@ -52,7 +52,8 @@ class blogModel
             $page = 1;
         }
         // Tính toán giá trị bắt đầu cho truy vấn SQL
-        $tmp    = ($page - 1) * $total;
+        $tmp = ($page - 1) * $total;
+        // Lấy đối tượng kết nối cơ sở dữ liệu
         $db     = DB::getInstance();
         $sql    = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, b.views FROM blog b JOIN users u ON b.userId = u.id LIMIT $tmp,$total";
         $result = mysqli_query($db->con, $sql);
