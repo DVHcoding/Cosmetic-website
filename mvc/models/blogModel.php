@@ -73,7 +73,8 @@ class blogModel
         // Lấy thể hiện của kết nối cơ sở dữ liệu
         $db = DB::getInstance();
         // Câu lệnh SQL để lấy thông tin các bài viết phổ biến
-        $sql    = "SELECT COUNT(*) FROM productrating";
+        $sql = "SELECT COUNT(*) FROM productrating";
+        // Thực hiện truy vấn SQL
         $result = mysqli_query($db->con, $sql);
         if ($result) {
             $totalrow = intval((mysqli_fetch_all($result, MYSQLI_ASSOC)[0])['COUNT(*)']);
