@@ -31,6 +31,7 @@ class blogModel
         return $result;
     }
 
+    // Hàm lấy thông tin blog theo ID
     public function getById($id)
     {
         $db     = DB::getInstance();
