@@ -80,6 +80,7 @@ class blogModel
             $totalrow = intval((mysqli_fetch_all($result, MYSQLI_ASSOC)[0])['COUNT(*)']);
             return ceil($totalrow / $row);
         }
+        // Trả về kết quả truy vấn
         return false;
     }
 
