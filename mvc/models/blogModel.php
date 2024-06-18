@@ -37,7 +37,8 @@ class blogModel
         // Lấy đối tượng kết nối cơ sở dữ liệu
         $db = DB::getInstance();
         // Câu lệnh SQL để lấy thông tin blog dựa vào ID
-        $sql    = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, b.views FROM blog b JOIN users u ON b.userId = u.id WHERE b.id = " . $id . "";
+        $sql = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, b.views FROM blog b JOIN users u ON b.userId = u.id WHERE b.id = " . $id . "";
+        // Thực thi câu lệnh SQL và lấy kết quả dưới dạng một hàng duy nhất
         $result = mysqli_query($db->con, $sql)->fetch_assoc();
         return $result;
     }
