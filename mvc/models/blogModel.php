@@ -40,6 +40,7 @@ class blogModel
         $sql = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, b.views FROM blog b JOIN users u ON b.userId = u.id WHERE b.id = " . $id . "";
         // Thực thi câu lệnh SQL và lấy kết quả dưới dạng một hàng duy nhất
         $result = mysqli_query($db->con, $sql)->fetch_assoc();
+        // Trả về kết quả
         return $result;
     }
 
