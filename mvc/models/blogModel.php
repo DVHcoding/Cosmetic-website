@@ -51,6 +51,7 @@ class blogModel
         if ($page <= 0) {
             $page = 1;
         }
+        // Tính toán giá trị bắt đầu cho truy vấn SQL
         $tmp    = ($page - 1) * $total;
         $db     = DB::getInstance();
         $sql    = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, b.views FROM blog b JOIN users u ON b.userId = u.id LIMIT $tmp,$total";
