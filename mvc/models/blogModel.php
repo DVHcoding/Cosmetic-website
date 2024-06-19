@@ -94,7 +94,7 @@ class blogModel
     {
         // Lấy thể hiện của kết nối cơ sở dữ liệu
         $db = DB::getInstance();
-        // Check image and move to upload folder
+        // Kiểm tra hình ảnh và di chuyển vào thư mục upload
         $file_name = $_FILES['image']['name'];
         $file_temp = $_FILES['image']['tmp_name'];
 
