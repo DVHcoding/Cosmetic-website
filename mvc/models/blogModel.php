@@ -83,6 +83,7 @@ class blogModel
         if ($result) {
             // Lấy tổng số hàng từ kết quả truy vấn và chuyển đổi thành số nguyên
             $totalrow = intval((mysqli_fetch_all($result, MYSQLI_ASSOC)[0])['COUNT(*)']);
+            // Tính toán và trả về số trang dựa trên số hàng mỗi trang
             return ceil($totalrow / $row);
         }
         return false;
