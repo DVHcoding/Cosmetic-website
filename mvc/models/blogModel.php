@@ -102,7 +102,8 @@ class blogModel
         $div      = explode('.', $file_name);
         $file_ext = strtolower(end($div));
         // Tạo tên file duy nhất bằng cách mã hóa thời gian hiện tại
-        $unique_image   = substr(md5(time()), 0, 10) . '.' . $file_ext;
+        $unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
+        // Đường dẫn đầy đủ của file sau khi upload
         $uploaded_image = APP_ROOT . "../../public/images/" . $unique_image;
 
         move_uploaded_file($file_temp, $uploaded_image);
