@@ -63,9 +63,9 @@ class blogModel
     public function getPopular()
     {
         // Lấy thể hiện của kết nối cơ sở dữ liệu
-        $db     = DB::getInstance();
+        $db = DB::getInstance();
         // Câu lệnh SQL để lấy thông tin các bài viết phổ biến
-        $sql    = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, b.views FROM blog b JOIN users u ON b.userId = u.id WHERE b.views > 0 ORDER BY b.views DESC LIMIT 5";
+        $sql = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, b.views FROM blog b JOIN users u ON b.userId = u.id WHERE b.views > 0 ORDER BY b.views DESC LIMIT 5";
         // Thực hiện truy vấn SQL
         $result = mysqli_query($db->con, $sql);
         // Trả về kết quả truy vấn
@@ -76,7 +76,8 @@ class blogModel
     {
         // Lấy thể hiện của kết nối cơ sở dữ liệu
         $db = DB::getInstance();
-        $sql = "SELECT COUNT(*) FROM productrating";
+        // Câu lệnh SQL để đếm số lượng hàng trong bảng productrating
+        $sql    = "SELECT COUNT(*) FROM productrating";
         $result = mysqli_query($db->con, $sql);
         if ($result) {
             $totalrow = intval((mysqli_fetch_all($result, MYSQLI_ASSOC)[0])['COUNT(*)']);
