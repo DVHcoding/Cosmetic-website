@@ -98,6 +98,7 @@ class blogModel
         $file_name = $_FILES['image']['name'];
         $file_temp = $_FILES['image']['tmp_name'];
 
+        // Tách phần mở rộng của file
         $div            = explode('.', $file_name);
         $file_ext       = strtolower(end($div));
         $unique_image   = substr(md5(time()), 0, 10) . '.' . $file_ext;
