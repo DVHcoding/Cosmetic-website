@@ -77,7 +77,8 @@ class blogModel
         // Lấy thể hiện của kết nối cơ sở dữ liệu
         $db = DB::getInstance();
         // Câu lệnh SQL để đếm số lượng hàng trong bảng productrating
-        $sql    = "SELECT COUNT(*) FROM productrating";
+        $sql = "SELECT COUNT(*) FROM productrating";
+        // Thực thi câu lệnh SQL và lấy kết quả
         $result = mysqli_query($db->con, $sql);
         if ($result) {
             $totalrow = intval((mysqli_fetch_all($result, MYSQLI_ASSOC)[0])['COUNT(*)']);
