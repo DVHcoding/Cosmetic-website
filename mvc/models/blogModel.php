@@ -106,6 +106,7 @@ class blogModel
         // Đường dẫn đầy đủ của file sau khi upload
         $uploaded_image = APP_ROOT . "../../public/images/" . $unique_image;
 
+        // Di chuyển file tạm vào thư mục đích
         move_uploaded_file($file_temp, $uploaded_image);
 
         $sql    = "INSERT INTO `blog`(`id`, `title`, `content`, `image`, `userId`, `createdDate`, `lastUpdated`,`views`) VALUES (NULL,'" . $data['title'] . "','" . $data['content'] . "','" . $unique_image . "','" . $_SESSION['user_id'] . "','" . date("y-m-d H:i:s") . "','" . date("y-m-d H:i:s") . "',0)";
