@@ -86,11 +86,13 @@ class blogModel
             // Tính toán và trả về số trang dựa trên số hàng mỗi trang
             return ceil($totalrow / $row);
         }
+        // Nếu truy vấn thất bại, trả về false
         return false;
     }
 
     public function insert($data)
     {
+        // Lấy thể hiện của kết nối cơ sở dữ liệu
         $db = DB::getInstance();
         // Check image and move to upload folder
         $file_name = $_FILES['image']['name'];
