@@ -99,8 +99,9 @@ class blogModel
         $file_temp = $_FILES['image']['tmp_name'];
 
         // Tách phần mở rộng của file
-        $div            = explode('.', $file_name);
-        $file_ext       = strtolower(end($div));
+        $div      = explode('.', $file_name);
+        $file_ext = strtolower(end($div));
+        // Tạo tên file duy nhất bằng cách mã hóa thời gian hiện tại
         $unique_image   = substr(md5(time()), 0, 10) . '.' . $file_ext;
         $uploaded_image = APP_ROOT . "../../public/images/" . $unique_image;
 
