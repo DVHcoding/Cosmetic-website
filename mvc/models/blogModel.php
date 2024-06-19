@@ -109,6 +109,7 @@ class blogModel
         // Di chuyển file tạm vào thư mục đích
         move_uploaded_file($file_temp, $uploaded_image);
 
+        // Câu lệnh SQL để chèn dữ liệu vào bảng blog
         $sql    = "INSERT INTO `blog`(`id`, `title`, `content`, `image`, `userId`, `createdDate`, `lastUpdated`,`views`) VALUES (NULL,'" . $data['title'] . "','" . $data['content'] . "','" . $unique_image . "','" . $_SESSION['user_id'] . "','" . date("y-m-d H:i:s") . "','" . date("y-m-d H:i:s") . "',0)";
         $result = mysqli_query($db->con, $sql);
         return $result;
