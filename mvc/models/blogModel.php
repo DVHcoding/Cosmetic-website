@@ -125,7 +125,8 @@ class blogModel
             $file_temp = $_FILES['image']['tmp_name'];
 
             // Tách tên file thành mảng bằng dấu chấm
-            $div            = explode('.', $file_name);
+            $div = explode('.', $file_name);
+            // Lấy phần mở rộng của file và chuyển thành chữ thường
             $file_ext       = strtolower(end($div));
             $unique_image   = substr(md5(time() . '1'), 0, 10) . '.' . $file_ext;
             $uploaded_image = APP_ROOT . "../../public/images/" . $unique_image;
