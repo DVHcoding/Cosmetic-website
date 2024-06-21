@@ -127,7 +127,8 @@ class blogModel
             // Tách tên file thành mảng bằng dấu chấm
             $div = explode('.', $file_name);
             // Lấy phần mở rộng của file và chuyển thành chữ thường
-            $file_ext       = strtolower(end($div));
+            $file_ext = strtolower(end($div));
+            // Tạo tên file duy nhất bằng cách hash thời gian hiện tại và lấy 10 ký tự đầu tiên
             $unique_image   = substr(md5(time() . '1'), 0, 10) . '.' . $file_ext;
             $uploaded_image = APP_ROOT . "../../public/images/" . $unique_image;
 
