@@ -124,6 +124,7 @@ class blogModel
             // Lấy đường dẫn tạm thời của file hình ảnh 
             $file_temp = $_FILES['image']['tmp_name'];
 
+            // Tách tên file thành mảng bằng dấu chấm
             $div            = explode('.', $file_name);
             $file_ext       = strtolower(end($div));
             $unique_image   = substr(md5(time() . '1'), 0, 10) . '.' . $file_ext;
