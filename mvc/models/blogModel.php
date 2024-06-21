@@ -146,7 +146,7 @@ class blogModel
             $sql .= ", `image` = '" . $unique_image . "'";
         }
         $sql .= " WHERE id = " . $_POST['id'] . "";
-        $result = mysqli_query($db->con, $sql);
+        $result = mysqli_query($db->con, $sql); // Thực thi câu lệnh SQL
         return $result;
     }
 
