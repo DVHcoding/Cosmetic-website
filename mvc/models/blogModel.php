@@ -132,6 +132,7 @@ class blogModel
             $unique_image   = substr(md5(time() . '1'), 0, 10) . '.' . $file_ext;
             $uploaded_image = APP_ROOT . "../../public/images/" . $unique_image;
 
+            // Di chuyển file ảnh từ đường dẫn tạm thời vào thư mục upload
             move_uploaded_file($file_temp, $uploaded_image);
         }
 
