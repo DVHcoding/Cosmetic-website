@@ -117,7 +117,7 @@ class blogModel
 
     public function update()
     {
-        // Check image and move to upload folder
+         // Kiểm tra xem có hình ảnh nào được tải lên hay không và di chuyển hình ảnh đó vào thư mục upload
         if (!empty($_FILES['image']['name'])) {
             $file_name = $_FILES['image']['name'];
             $file_temp = $_FILES['image']['tmp_name'];
