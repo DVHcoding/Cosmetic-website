@@ -138,7 +138,8 @@ class blogModel
         }
 
         // Lấy thể hiện của đối tượng DB
-        $db  = DB::getInstance();
+        $db = DB::getInstance();
+        // Tạo câu lệnh SQL để cập nhật tiêu đề, nội dung và thời gian cập nhật cuối cùng
         $sql = "UPDATE `blog` SET title = '" . $_POST['title'] . "', `content` = '" . $_POST['content'] . "', `lastUpdated` = '" . date("y-m-d H:i:s") . "'";
         if (!empty($_FILES['image']['name'])) {
             $sql .= ", `image` = '" . $unique_image . "'";
