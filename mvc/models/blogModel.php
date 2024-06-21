@@ -129,7 +129,8 @@ class blogModel
             // Lấy phần mở rộng của file và chuyển thành chữ thường
             $file_ext = strtolower(end($div));
             // Tạo tên file duy nhất bằng cách hash thời gian hiện tại và lấy 10 ký tự đầu tiên
-            $unique_image   = substr(md5(time() . '1'), 0, 10) . '.' . $file_ext;
+            $unique_image = substr(md5(time() . '1'), 0, 10) . '.' . $file_ext;
+            // Đường dẫn của file ảnh sau khi upload
             $uploaded_image = APP_ROOT . "../../public/images/" . $unique_image;
 
             // Di chuyển file ảnh từ đường dẫn tạm thời vào thư mục upload
