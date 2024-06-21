@@ -117,10 +117,11 @@ class blogModel
 
     public function update()
     {
-         // Kiểm tra xem có hình ảnh nào được tải lên hay không và di chuyển hình ảnh đó vào thư mục upload
+        // Kiểm tra xem có hình ảnh nào được tải lên hay không và di chuyển hình ảnh đó vào thư mục upload
         if (!empty($_FILES['image']['name'])) {
             // Lấy tên file hình ảnh
             $file_name = $_FILES['image']['name'];
+            // Lấy đường dẫn tạm thời của file hình ảnh 
             $file_temp = $_FILES['image']['tmp_name'];
 
             $div            = explode('.', $file_name);
