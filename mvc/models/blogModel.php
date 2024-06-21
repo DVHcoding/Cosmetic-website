@@ -137,6 +137,7 @@ class blogModel
             move_uploaded_file($file_temp, $uploaded_image);
         }
 
+        // Lấy thể hiện của đối tượng DB
         $db  = DB::getInstance();
         $sql = "UPDATE `blog` SET title = '" . $_POST['title'] . "', `content` = '" . $_POST['content'] . "', `lastUpdated` = '" . date("y-m-d H:i:s") . "'";
         if (!empty($_FILES['image']['name'])) {
