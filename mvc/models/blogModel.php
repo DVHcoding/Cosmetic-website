@@ -142,7 +142,6 @@ class blogModel
         // Tạo câu lệnh SQL để cập nhật tiêu đề, nội dung và thời gian cập nhật cuối cùng
         $sql = "UPDATE `blog` SET title = '" . $_POST['title'] . "', `content` = '" . $_POST['content'] . "', `lastUpdated` = '" . date("y-m-d H:i:s") . "'";
         if (!empty($_FILES['image']['name'])) {
-            // Nếu có hình ảnh được tải lên, thêm thông tin hình ảnh vào câu lệnh SQL
             $sql .= ", `image` = '" . $unique_image . "'";
         }
         $sql .= " WHERE id = " . $_POST['id'] . "";
