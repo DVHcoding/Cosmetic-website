@@ -20,7 +20,6 @@ class blogModel
         return self::$instance;
     }
 
-    // Phương thức tìm kiếm bài viết theo từ khóa
     public function search($keyword)
     {
         // Lấy thể hiện của lớp DB
