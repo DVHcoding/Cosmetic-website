@@ -89,6 +89,7 @@ class blogManage extends ControllerBase
 
     public function edit($id = "")
     {
+        // Kiểm tra vai trò của người dùng, nếu không phải là admin thì chuyển hướng đến trang 'home'
         if (isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') {
             $this->redirect("home");
         }
