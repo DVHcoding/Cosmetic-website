@@ -93,7 +93,8 @@ class blogModel
     public function insert($data)
     {
         // Lấy thể hiện của kết nối cơ sở dữ liệu
-        $db        = DB::getInstance();
+        $db = DB::getInstance();
+        // Kiểm tra hình ảnh và di chuyển vào thư mục upload
         $file_name = $_FILES['image']['name'];
         $file_temp = $_FILES['image']['tmp_name'];
 
