@@ -86,7 +86,6 @@ class blogModel
             // Tính toán và trả về số trang dựa trên số hàng mỗi trang
             return ceil($totalrow / $row);
         }
-        // Nếu truy vấn thất bại, trả về false
         return false;
     }
 
