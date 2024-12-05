@@ -74,7 +74,6 @@ class blogModel
 
     public function getCountPaging($row = 8)
     {
-        // Lấy thể hiện của kết nối cơ sở dữ liệu
         $db = DB::getInstance();
         // Câu lệnh SQL để đếm số lượng hàng trong bảng productrating
         $sql = "SELECT COUNT(*) FROM productrating";
