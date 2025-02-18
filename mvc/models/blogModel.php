@@ -23,6 +23,7 @@ class blogModel
     // Phương thức tìm kiếm bài viết theo từ khóa
     public function search($keyword)
     {
+        // Lấy thể hiện của lớp DB
         $db = DB::getInstance();
         // Câu truy vấn SQL tìm kiếm bài viết theo từ khóa trong tiêu đề 
         $sql    = "SELECT b.id, b.title, b.content, b.image, b.createdDate, u.fullName as author, MATCH (b.title) AGAINST ('" . $keyword . "') as score FROM blog b JOIN users u ON b.userId = u.id WHERE MATCH(b.title) AGAINST ('$keyword') > 0.2 ORDER BY score DESC";
