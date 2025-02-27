@@ -44,7 +44,6 @@ class blogModel
         return $result;
     }
 
-    // Hàm lấy tất cả các blog theo trang
     public function getAll($page = 1, $total = 8)
     {
         // Nếu số trang nhỏ hơn hoặc bằng 0, đặt lại thành 1
