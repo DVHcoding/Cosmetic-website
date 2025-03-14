@@ -10,7 +10,6 @@ class Admin extends ControllerBase
             $this->redirect("home");
         }
 
-        // Khởi tạo các model để truy vấn dữ liệu từ CSDL
         $user    = $this->model("userModel");
         $order   = $this->model("orderModel");
         $product = $this->model("productModel");
