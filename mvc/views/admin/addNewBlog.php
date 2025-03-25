@@ -3,7 +3,6 @@
 
 <body>
     <?php require APP_ROOT . '/views/admin/inc/sidebar.php'; ?>
-    <!-- New Blog  -->
     <div class="main-content">
 
         <main>
