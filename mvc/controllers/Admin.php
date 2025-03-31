@@ -4,6 +4,7 @@ class Admin extends ControllerBase
 {
     public function Index()
     {
+        // Kiểm tra vai trò và phiên đăng nhập của người dùng
         if ((isset($_SESSION['role']) && $_SESSION['role'] != 'Admin') || !isset($_SESSION['user_id'])) {
             // Nếu không phải admin hoặc không có phiên đăng nhập, chuyển hướng đến trang 'home'
             $this->redirect("home");
