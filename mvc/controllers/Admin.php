@@ -36,10 +36,7 @@ class Admin extends ControllerBase
         }
 
         // Tạo mảng chứa các ngày trong tháng
-        $days = [];
-        for ($i = 0; $i < count($revenueMonth); $i++) {
-            $days[$i] = $revenueMonth[$i]['day'];
-        }
+
 
         ///////////////////////////////////////////////
         // Lấy số lượng sản phẩm đã bán trong tháng
