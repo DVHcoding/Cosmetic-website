@@ -36,17 +36,17 @@ class Admin extends ControllerBase
         }
 
         // Tạo mảng chứa các ngày trong tháng
-
+        $days = [];
+        for ($i = 0; $i < count($revenueMonth); $i++) {
+            $days[$i] = $revenueMonth[$i]['day'];
+        }
 
         ///////////////////////////////////////////////
         // Lấy số lượng sản phẩm đã bán trong tháng
         $soldCountMonth = $product->getSoldCountMonth()->fetch_all(MYSQLI_ASSOC);
 
         // Tạo mảng chứa số lượng sản phẩm đã bán
-        $totalsoldCount = [];
-        for ($i = 0; $i < count($soldCountMonth); $i++) {
-            $totalsoldCount[$i] = $soldCountMonth[$i]['total'];
-        }
+
 
         // Tạo mảng chứa tên của các sản phẩm đã bán
         $names = [];
