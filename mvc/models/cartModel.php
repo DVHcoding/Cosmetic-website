@@ -16,6 +16,18 @@ class cartModel
         return self::$instance;
     }
 
+    /**
+     * Retrieves the list of products in a user's cart by their user ID.
+     *
+     * This method performs a SQL JOIN between the `cart` and `products` tables
+     * to get detailed product information such as name, price, image, and quantity
+     * for each product in the cart.
+     *
+     * @param int|string $userId The ID of the user whose cart is being queried.
+     * @return array Returns an associative array of cart items keyed by product ID.
+     *               Each item includes productId, productName, image, quantity, and productPrice.
+     *
+     */
     public function getByUserId($userId)
     {
         $db = DB::getInstance();
