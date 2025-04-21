@@ -71,6 +71,17 @@ class cartModel
         return false;
     }
 
+    /**
+     * Retrieves the total quantity of all items in a user's cart.
+     *
+     * Executes a SQL query to calculate the sum of the quantity column
+     * for all items in the cart belonging to the specified user.
+     *
+     * @param int|string $userId The ID of the user.
+     * @return mysqli_result|false Returns the result set containing the total quantity as 'total',
+     *                             or false on query failure.
+     *
+     */
     public function getTotalQuantitycart($userId)
     {
         $db = DB::getInstance();
