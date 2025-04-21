@@ -50,6 +50,16 @@ class cartModel
         return $cartArray;
     }
 
+    /**
+     * Checks if a specific product exists in a user's cart.
+     *
+     * Executes a SQL query to determine whether the given product is already present
+     * in the cart for the specified user.
+     *
+     * @param int|string $userId The ID of the user.
+     * @param int|string $productId The ID of the product to check in the cart.
+     * @return bool Returns true if the product is in the user's cart, false otherwise.
+     */
     public function check($userId, $productId)
     {
         $db = DB::getInstance();
